@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 13:49:11 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/04 13:49:11 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/01/04 13:53:00 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,7 +173,7 @@ char	*get_next_line(int fd)
 		return(NULL);
 	}
 //		return (NULL);
-	if (i != 0)                // can move it
+	if (i != 0)                // can move i
 	{                          // can move it
 		if (buffer == NULL)    // can move it
 			return (NULL);     // can move it 
