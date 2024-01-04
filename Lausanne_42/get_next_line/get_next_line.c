@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/30 16:04:26 by mwikiera          #+#    #+#             */
-/*   Updated: 2023/12/31 21:22:10 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/04 13:49:11 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/04 13:49:11 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,12 @@ char	*get_next_line(int fd)
 	char	temp_buffer[BUFFER_SIZE];
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-		return (NULL);
+	{
+		buffer = 0;
+		i = 0;
+		return(NULL);
+	}
+//		return (NULL);
 	if (i != 0)                // can move it
 	{                          // can move it
 		if (buffer == NULL)    // can move it

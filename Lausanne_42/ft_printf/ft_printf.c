@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:51:57 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/03 16:52:13 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/01/04 13:28:36 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,17 @@
 
 void	base(unsigned int num, char *base)
 {
-	printf("HELLO");
-	printf("%d", num);
-	printf("%s", base);
+	printf("Number: %d    ", num);
+	printf("Base: %s    ", base);
+	printf("BASE: %d", ft_strlen(base) + 1);
+
+
+
+
+
+
+
+
 }
 
 void	replace(char c, va_list args)
@@ -103,6 +111,7 @@ int main(void)
 	printf("Adress:       %p\n", &string);
 	printf("Unsigned int: %u\n", negative);
 	printf("Special char: %%\n");
+	printf("Dec number:   %d\n", hexamini);
 	printf("Hexamini:     %x\n", hexamini);
 	printf("Hexamax:      %X\n", hexamax);
 
