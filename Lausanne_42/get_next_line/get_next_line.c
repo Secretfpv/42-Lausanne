@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 13:49:11 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/04 13:53:00 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/04 14:47:14 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/05 13:13:53 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,21 @@ char	*new_buffer(char *buffer)
 	return (new_buff);
 }
 
+/*char	*only_line(char *buffer)
+{
+	char	*the_line;
+
+	//printf("Lenght of this_line: %d\n", this_line);
+	the_line = malloc((1 * sizeof(char)) + 1);
+
+	buffer[0] = '1';
+
+	the_line[0] = '1';
+	the_line[1] = '\0';
+
+	return (the_line);
+}*/
+
 char	*only_line(char *buffer)
 {
 	int		i;
@@ -65,8 +80,6 @@ char	*only_line(char *buffer)
 		the_line[i] = buffer[i];
 		i++;
 	}
-	//printf("Value of i: %d\n", i);
-	//printf("Value of this_line: %d\n", (this_line));
 	the_line[i] = '\0';
 
 	return (the_line);
@@ -168,6 +181,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
+		free(buffer);
 		buffer = 0;
 		i = 0;
 		return(NULL);
@@ -219,7 +233,7 @@ char	*get_next_line(int fd)
 	return(line);
 }
 
-/*int main()
+int main()
 {
     int fd;
     char *line;
@@ -270,4 +284,4 @@ char	*get_next_line(int fd)
     close(fd);
 
     return 0;
-}*/
+}

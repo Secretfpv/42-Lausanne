@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 17:28:11 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/05 17:28:11 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/08 13:03:18 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/09 16:36:31 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,9 @@ int	ft_printf(const char *sign, ...)
 	}
 	len = ft_strlen(sign);
 
-	printf("\nLen of string: %d", len);
+	printf("\n\nLen of string: %d", len);
+
+	va_end(args);
 
 	return(0);
 }
@@ -130,5 +132,12 @@ int main(void)
 
 	printf("\033[0m\n\n----------------------------\n");
 
-	printf("\033[1;31mShould Display\033[0m:\n\n\033[1;35mLets try to copy %d words %s that contains %c char and adress %p and unsigned number %u and spechar %%, Hexamini %x, Hexamax %X\033[0m\n\n----------------------------\n", number, string, chara, &string, negative, hexamini, hexamax);
+	printf("\033[1;31mShould Display\033[0m:\n\n\033[1;35mLets try to copy %d words %s that contains %c char and adress %p and unsigned number %u and spechar %%, Hexamini %x, Hexamax %X\033[0m\n\n----------------------------\n\n", number, string, chara, &string, negative, hexamini, hexamax);
+
+
+	//ft_putnbr_fd(6, 1);
+
+
+
+
 }
