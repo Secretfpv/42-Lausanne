@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 13:03:18 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/09 16:36:31 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/15 11:14:17 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/15 11:19:19 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	base(unsigned int num, char *base)
 {
 	int x;
 	int i_pow;
+	unsigned int n;
 
 	while (num > 15)
 	{
@@ -24,8 +25,8 @@ void	base(unsigned int num, char *base)
 		//printf("\n\n I_Pow: %d", i_pow);
 		//printf("\n I_Value (i_pow): %d", ivalue(i_pow));
 		//printf("\n Num Before print: %d", num);
-
-		while (num > ivalue(i_pow))
+		n = ivalue(i_pow);
+		while (num > n)
 		{
 			num = num - ivalue(i_pow);
 			x++;
@@ -135,7 +136,7 @@ int main(void)
 	printf("\033[1;31mShould Display\033[0m:\n\n\033[1;35mLets try to copy %d words %s that contains %c char and adress %p and unsigned number %u and spechar %%, Hexamini %x, Hexamax %X\033[0m\n\n----------------------------\n\n", number, string, chara, &string, negative, hexamini, hexamax);
 
 
-	//ft_putnbr_fd(6, 1);
+	ft_putnbr_fd(6, 1);
 
 
 

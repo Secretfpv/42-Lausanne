@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 13:05:13 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/08 13:05:13 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/14 14:36:32 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/14 14:37:11 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ int	i_power(int num)
 
 void	Hexa_print(int number, char *base)
 {
-	int i;
+	//int i;      gonna use it for the lenght of the string
 
-	i = ft_strlen(base);
+	//i = ft_strlen(base);
 	//printf("\n I_Value: %d\n", i);
 	//printf("\n Base: %s\n", base);
 	if (number <= 0 && number >= 9)
