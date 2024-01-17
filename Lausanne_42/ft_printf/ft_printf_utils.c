@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 14:50:00 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/17 14:52:05 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/17 16:07:47 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/17 16:07:47 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	i_power(int num)
 // changing from void to char
 void	Hexa_print(int number, char *base)
 {
-	char	ret;
 
 	//int i;      gonna use it for the lenght of the string
 
