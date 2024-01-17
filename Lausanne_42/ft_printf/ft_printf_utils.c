@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 16:27:31 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/17 16:27:31 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/17 16:31:24 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/17 16:31:24 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ft_printf.h"
 
-int	ft_strlen(const char *str)
-{
-	int	i;
+//int	ft_strlen(const char *str)
+//{
+//	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+//	i = 0;
+//	while (str[i] != '\0')
+//		i++;
+//	return (i);
+//}
 
 int	ivalue(int i)
 {
