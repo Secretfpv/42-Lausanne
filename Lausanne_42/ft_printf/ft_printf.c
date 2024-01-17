@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 14:53:01 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/17 16:07:31 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/17 16:28:01 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/17 16:28:01 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,15 @@ void	base(unsigned int num, char *base)
 			num = num - ivalue(i_pow);
 			x++;
 		}
-		Hexa_print(x, base);
+		//Hexa_print(x, base);
+		ft_putchar_fd(base[x], 1);
 		
 		//ft_putchar_fd(Hexa_print(x, base), 1);
 	}
 	if (num <= 15)
 	{
-		Hexa_print(num, base);
+		//Hexa_print(num, base);
+		ft_putchar_fd(base[num], 1);
 
 	//	ft_putchar_fd(Hexa_print(num, base), 1);
 	}

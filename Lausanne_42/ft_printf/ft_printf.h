@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 14:49:02 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/17 16:13:16 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/17 16:27:39 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/17 16:27:39 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	ft_printf(const char *, ...);
 int	ft_strlen(const char *str);
 int	ivalue(int i);
 int	i_power(int num);
-void	Hexa_print(int number, char *base);
+//void	Hexa_print(int number, char *base);
 
 #endif
