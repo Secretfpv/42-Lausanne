@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 11:14:17 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/15 11:19:19 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/17 14:53:01 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/17 14:56:33 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void	base(unsigned int num, char *base)
 	int x;
 	int i_pow;
 	unsigned int n;
+	char res;
+
+	//ft_putstr_fd("Hello", 1);
 
 	while (num > 15)
 	{
@@ -32,27 +35,35 @@ void	base(unsigned int num, char *base)
 			x++;
 		}
 		Hexa_print(x, base);
+		
+		//ft_putchar_fd(Hexa_print(x, base), 1);
 	}
 	if (num <= 15)
+	{
 		Hexa_print(num, base);
+
+	//	ft_putchar_fd(Hexa_print(num, base), 1);
+	}
 }
 
 void	replace(char c, va_list args)
 {
 	if(c == 'd')
-		printf("%d", va_arg(args, int));
+		ft_putnbr_fd(va_arg(args, int), 1);
 	else if (c == 's')
-		printf("%s", va_arg(args, char *));
+		ft_putstr_fd(va_arg(args, char *), 1);
 	else if (c == 'c')
-		printf("%c", va_arg(args, int));
-	else if (c == 'p')
-		printf("%p", va_arg(args, void *));
+		ft_putchar_fd(va_arg(args, int), 1);
+//	else if (c == 'p')
+//		printf("%p", va_arg(args, void *));
 	else if (c == 'u')
-		printf("%u", va_arg(args, unsigned int));
+		ft_putnbr_fd(va_arg(args, unsigned int), 1);
 	else if (c == '%')
-		printf("%%");
+		ft_putchar_fd('%', 1);
 	else if (c == 'x')
+	{
 		base(va_arg(args, unsigned int), "0123456789abcdef");
+	}
 	else if (c == 'X')
 		base(va_arg(args, unsigned int), "0123456789ABCDEF");
 }
@@ -61,7 +72,7 @@ int	ft_printf(const char *sign, ...)
 {
 	//ft_putchar_fd('A', 1);
 	//ft_strlen(sign);
-	printf("%s\n", sign);
+	//printf("%s\n", sign);
 
 	printf("\033[0m");
 
@@ -84,7 +95,8 @@ int	ft_printf(const char *sign, ...)
 		}
 		else
 		{
-			printf("%c", sign[i]);
+			ft_putchar_fd(sign[i], 1);
+			//printf("%c", sign[i]);
 			i++;
 		}
 	}
@@ -102,16 +114,16 @@ int main(void)
 	int 			number;
 	char 			*string;
 	char 			chara;
-	unsigned int	negative;
-	//char			spechar;
+	unsigned int	unnsigned;
+	char			spechar;
 	int				hexamini;
 	int				hexamax;
 
 	number = 5;
 	string = "Hello";
-	chara = 'o';
-	negative = 7;
-	//spechar = '%';
+	chara = 'm';
+	unnsigned = 7;
+	spechar = '%';
 	hexamini = 346;
 	hexamax = 346;
 
@@ -120,8 +132,8 @@ int main(void)
 	printf("Number:       %d\n", number);
 	printf("String:       %s\n", string);
 	printf("Char:         %c\n", chara);
-	printf("Adress:       %p\n", &string);
-	printf("Unsigned int: %u\n", negative);
+	printf("Adress:       %p\n", (void *)string);
+	printf("Unsigned int: %u\n", unnsigned);
 	printf("Special char: %%\n");
 	printf("Dec number:   %d\n", hexamini);
 	printf("Hexamini:     %x\n", hexamini);
@@ -129,16 +141,13 @@ int main(void)
 
 	printf("\n----------------------------\n\033[1;34mDisplays\033[0m:\n\n\033[1;35m");
 
-	ft_printf("Lets try to copy %d words %s that contains %c char and adress %p and unsigned number %u and spechar %%, Hexamini %x, Hexamax %X", number, string, chara, &string, negative, hexamini, hexamax);
+	ft_printf("Lets try to copy %d words %s that contains %c char and adress %p and unsigned number %u and spechar %%, Hexamini %x, Hexamax %X", number, string, chara, &string, unnsigned, hexamini, hexamax);
+	//ft_printf("Hexamini %x, Hexamax %X", hexamini, hexamax);
+	//ft_printf("Lets try to copy %d words %s that contains %c char and unsigned number %u and our spec char %%, Hexamini %x, Hexamax %X and some text after this.", number, string, chara, unnsigned, hexamini, hexamax);
 
 	printf("\033[0m\n\n----------------------------\n");
 
-	printf("\033[1;31mShould Display\033[0m:\n\n\033[1;35mLets try to copy %d words %s that contains %c char and adress %p and unsigned number %u and spechar %%, Hexamini %x, Hexamax %X\033[0m\n\n----------------------------\n\n", number, string, chara, &string, negative, hexamini, hexamax);
-
-
-	ft_putnbr_fd(6, 1);
-
-
+	printf("\033[1;31mShould Display\033[0m:\n\n\033[1;35mLets try to copy %d words %s that contains %c char and adress %p and unsigned number %u and spechar %%, Hexamini %x, Hexamax %X\033[0m\n\n----------------------------\n\n", number, string, chara, &string, unnsigned, hexamini, hexamax);
 
 
 }

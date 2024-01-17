@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/14 14:36:32 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/14 14:37:11 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/17 14:50:00 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/17 14:52:05 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,28 @@ int	i_power(int num)
 	return (i);
 }
 
+// changing from void to char
 void	Hexa_print(int number, char *base)
 {
+	char	ret;
+
 	//int i;      gonna use it for the lenght of the string
 
 	//i = ft_strlen(base);
 	//printf("\n I_Value: %d\n", i);
 	//printf("\n Base: %s\n", base);
 	if (number <= 0 && number >= 9)
-		printf("%d", number);
+	{
+		//ret = number + 48;
+		
+		ft_putnbr_fd(number, 1);
+		//printf("%d", number);
+	}
 	else
-		printf("%c", base[number]);
+	{
+		//ret = base[number];
+		
+		ft_putchar_fd(base[number], 1);
+	}
+		//printf("%c", base[number]);
 }
