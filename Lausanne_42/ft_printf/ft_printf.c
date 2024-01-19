@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 16:28:01 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/17 16:28:01 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/19 18:50:55 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/19 20:39:32 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,9 @@ int	ft_printf(const char *sign, ...)
 	return(0);
 }
 
-/*int main(void)
+// gcc -g ft_printf.c ft_printf_utils.c -Ilibft -Llibft -lft
+
+int main(void)
 {
 	int 			number;
 	char 			*string;
@@ -143,25 +145,25 @@ int	ft_printf(const char *sign, ...)
 	hexamini = 346;
 	hexamax = 346;
 
-//	printf("----------------------------\n\033[1;33mVariables\033[0m:\n");
+	printf("----------------------------\n\033[1;33mVariables\033[0m:\n");
 
-//	printf("Number:       %d\n", number);
-//	printf("String:       %s\n", string);
-//	printf("Char:         %c\n", chara);
-//	printf("Adress:       %p\n", (void *)string);
-//	printf("Unsigned int: %u\n", unnsigned);
-//	printf("Special char: %%\n");
-//	printf("Dec number:   %d\n", hexamini);
-//	printf("Hexamini:     %x\n", hexamini);
-//	printf("Hexamax:      %X\n", hexamax);
+	printf("Number:       %d\n", number);
+	printf("String:       %s\n", string);
+	printf("Char:         %c\n", chara);
+	printf("Adress:       %p\n", (void *)string);
+	printf("Unsigned int: %u\n", unnsigned);
+	printf("Special char: %%\n");
+	printf("Dec number:   %d\n", hexamini);
+	printf("Hexamini:     %x\n", hexamini);
+	printf("Hexamax:      %X\n", hexamax);
 
-//	printf("\n----------------------------\n\033[1;34mDisplays\033[0m:\n\n\033[1;35m");
+	printf("\n----------------------------\n\033[1;34mDisplays\033[0m:\n\n\033[1;35m");
 
 	ft_printf("Lets try to copy %d words %s that contains %c char and adress %p and unsigned number %u and spechar %%, Hexamini %x, Hexamax %X", number, string, chara, &string, unnsigned, hexamini, hexamax);
 	
-//	printf("\033[0m\n\n----------------------------\n");
+	printf("\033[0m\n\n----------------------------\n");
 
-//	printf("\033[1;31mShould Display\033[0m:\n\n\033[1;35mLets try to copy %d words %s that contains %c char and adress %p and unsigned number %u and spechar %%, Hexamini %x, Hexamax %X\033[0m\n\n----------------------------\n\n", number, string, chara, &string, unnsigned, hexamini, hexamax);
+	printf("\033[1;31mShould Display\033[0m:\n\n\033[1;35mLets try to copy %d words %s that contains %c char and adress %p and unsigned number %u and spechar %%, Hexamini %x, Hexamax %X\033[0m\n\n----------------------------\n\n", number, string, chara, &string, unnsigned, hexamini, hexamax);
 
 
-}*/
+}
