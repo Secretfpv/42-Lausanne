@@ -120,7 +120,11 @@ char	*get_next_line(int fd)
 
 	// error handling
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-		return (NULL);
+	{
+		free(buffer);
+		buffer = 0;
+		return(NULL);
+	}
 //	printf("There1\n");
 	buffer = read_file(fd, buffer);
 	if (!buffer)
