@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 16:28:38 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/19 16:28:38 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/19 16:39:13 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/19 16:39:13 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
