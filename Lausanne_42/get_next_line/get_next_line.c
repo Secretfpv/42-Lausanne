@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 16:39:25 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/19 16:39:25 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/01/19 16:41:06 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ char	*get_next_line(int fd)
 	{
 		free(buffer);
 		buffer = 0;
-		return(NULL);
+		return (NULL);
 	}
 	buffer = read_file(fd, buffer);
 	if (!buffer)
