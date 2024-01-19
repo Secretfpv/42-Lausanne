@@ -5,237 +5,136 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 14:47:14 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/05 13:13:53 by mwikiera         ###   ########.ch       */
+/*   Created: 19/01/2024 16:27:01 by mwikiera          #+#    #+#             */
+/*   Updated: 19/01/2024 16:27:01 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "get_next_line.h"
 
-char	*new_buffer(char *buffer)
+// join and free
+char	*ft_free(char *buffer, char *buf)
 {
-	//char *new;          //added
-	char	*new_buff;
-	int 	line;
-	int 	all;
-	int		x;
-	int		c;
+	char	*temp;
 
-
-	x = 0;
-	all = (ft_strlen(buffer) + 1);
-	line = ft_strlenline(buffer);
-	c = all - line;
-	
-	if (all - 1 <= line)
-	{
-		free (buffer);
-		//new = malloc(1 * sizeof(char));  //added
-		//ft_memset(new, '\0', 1);                    //added
-		return (NULL);                    //changed from NULL
-	}
-
-	new_buff = malloc(c * sizeof(char) + 1);
-	while (x < (all - line - 1))
-	{
-		new_buff[x] = buffer[all - c];
-		x++;
-		c--;
-	}
-
+	temp = ft_strjoin(buffer, buf);
 	free(buffer);
-	new_buff[x] = '\0';
-	return (new_buff);
+	return (temp);
 }
 
-/*char	*only_line(char *buffer)
-{
-	char	*the_line;
-
-	//printf("Lenght of this_line: %d\n", this_line);
-	the_line = malloc((1 * sizeof(char)) + 1);
-
-	buffer[0] = '1';
-
-	the_line[0] = '1';
-	the_line[1] = '\0';
-
-	return (the_line);
-}*/
-
-char	*only_line(char *buffer)
+// delete line find
+char	*ft_next(char *buffer)
 {
 	int		i;
-	int		this_line;
-	char	*the_line;
+	int		j;
+	char	*line;
 
 	i = 0;
-	this_line = ft_strlenline(buffer);
-	//printf("Lenght of this_line: %d\n", this_line);
-	the_line = malloc((this_line * sizeof(char)) + 1);
-	if (the_line == NULL)
-		return(NULL);
-	while (i < this_line)
+	// find len of first line
+	while (buffer[i] && buffer[i] != '\n')
+		i++;
+	// if eol == \0 return NULL
+	if (!buffer[i])
 	{
-		the_line[i] = buffer[i];
+		free(buffer);
+		return (NULL);
+	}
+	// len of file - len of firstline + 1
+	line = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
+	i++;
+	j = 0;
+	// line == buffer
+	while (buffer[i])
+		line[j++] = buffer[i++];
+	free(buffer);
+	return (line);
+}
+
+// take line for return
+char	*ft_line(char *buffer)
+{
+	char	*line;
+	int		i;
+
+	i = 0;
+	// if no line return NULL
+	if (!buffer[i])
+		return (NULL);
+//	printf("There5\n");
+	// go to the eol
+	while (buffer[i] && buffer[i] != '\n')
+		i++;
+	// malloc to eol
+	line = ft_calloc(i + 2, sizeof(char));
+	i = 0;
+	// line = buffer
+	while (buffer[i] && buffer[i] != '\n')
+	{
+		line[i] = buffer[i];
 		i++;
 	}
-	the_line[i] = '\0';
-
-	return (the_line);
+	// if eol is \0 or \n, replace eol by \n
+	if (buffer[i] && buffer[i] == '\n')
+		line[i++] = '\n';
+	return (line);
 }
 
-char	*add_char(char *buffer, char *next_chars)
+char	*read_file(int fd, char *res)
 {
-	char	*returnbuffer;
-	int		buffer_lenght;
-	int		next_chars_lenght;
+	char	*buffer;
+	int		byte_read;
 
-	buffer_lenght = ft_strlen(buffer);
-	//printf("This is next_chars: %s\n", next_chars);
-	next_chars_lenght = ft_strlen(next_chars); // HELP
-	//printf("Lenght of next_chars: %d\n", next_chars_lenght);
-
-	returnbuffer = malloc(((buffer_lenght + next_chars_lenght) * sizeof(char)) + 1);
-	returnbuffer = ft_strjoin(returnbuffer ,buffer, next_chars); // HELP
-	free(buffer);
-	return (returnbuffer);
-}
-
-char	*read_file(int fd, char *buffer)
-{
-	int		bytes_read;
-	char	temp_buffer[BUFFER_SIZE + 1];
-//	char	*buffer;
-	//static int i;    //added
-
-	//i = 0;    //added
-
-//	if(i == 0)
-//	{
-//		buffer = malloc(1 * sizeof(char));
-//		if (buffer == NULL)
-//			return (NULL);
-//		buffer [0] = '\0';
-//		i++;
-//	}
-
-	bytes_read = read(fd, temp_buffer, BUFFER_SIZE);
-		if (bytes_read != 0)
+	// malloc if res dont exist
+	if (!res)
+		res = ft_calloc(1, 1);
+	// malloc buffer
+	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	byte_read = 1;
+	while (byte_read > 0)
+	{
+		// while not eof read
+		byte_read = read(fd, buffer, BUFFER_SIZE);
+		if (byte_read == -1)
 		{
 			free(buffer);
-			buffer = malloc(1 * 1);
-			buffer[0] = '\0';
-			//bytes_read = 1;
-			lseek(fd, 0, SEEK_SET);
-		}
-	//lseek(fd, 0, SEEK_SET);
-
-
-	//ft_memset(temp_buffer, '\0', BUFFER_SIZE);
-	//temp_buffer[0] = '\0';
-	
-//	buffer = malloc(1 * sizeof(char));
-//	if (buffer == NULL)
-//		return (NULL);
-//	buffer [0] = '\0';
-
-	bytes_read = 1;
-
-	//need to malloc buffer and than calloc but need chck if file empty or not
-	while (bytes_read > 0)
-	{
-		//ft_memset(temp_buffer, '\0', BUFFER_SIZE);
-		bytes_read = read(fd, temp_buffer, BUFFER_SIZE);
-//		printf("Bytes_read value: %d\n", bytes_read);
-		temp_buffer[bytes_read] = '\0';
-		if (bytes_read == -1)
-		{
 			return (NULL);
 		}
-		if (bytes_read == 0)
-		{
-			//buffer = NULL;
-			//free(buffer);
-			break;
-		}
-		buffer = add_char(buffer, temp_buffer);
-
-		//if(buffer[i] == '\n')   //added needed?
-		//	break;              //added needed?
-		//i++;                    //added needed?
-
-		//if (bytes_read == -1 || bytes_read == 0)   // needed?
-		//	break;                                 // needed?  
+		// 0 to end for leak
+		buffer[byte_read] = '\0';
+		// join and free
+		res = ft_free(res, buffer);
+		// quit if \n find
+		if (ft_strchr(buffer, '\n'))
+			break ;
 	}
-	return(buffer);
+	free(buffer);
+//	printf("There4\n");
+	return (res);
 }
 
 char	*get_next_line(int fd)
 {
 	static char	*buffer;
 	char		*line;
-	static int	i = 0;
-	int x;
-	char	temp_buffer[BUFFER_SIZE];
 
+	// error handling
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-	{
-		free(buffer);
-		buffer = 0;
-		i = 0;
-		return(NULL);
-	}
-//		return (NULL);
-	if (i != 0)                // can move i
-	{                          // can move it
-		if (buffer == NULL)    // can move it
-			return (NULL);     // can move it 
-	}                          // can move it
-
-	if (i == 0)
-	{
-		x = read(fd, temp_buffer, BUFFER_SIZE);
-		if (x == 0)
-			return(NULL);
-		lseek(fd, 0, SEEK_SET);
-
-		buffer = malloc(1 * sizeof(char));
-		if (buffer == NULL)
-			return (NULL);
-		buffer [0] = '\0';
-	}
-
-	//if(i == 0)
-	//{
-	//	buffer = malloc(1 * sizeof(char));
-	//	if (buffer == NULL)
-	//		return (NULL);
-	//	buffer [0] = '\0';
-	//}
-
-	//////////////////// i only have to read once otherwise x=0
-	//////////////////// to know if has to keep reading need 
-	//////////////////// check buffer because everything in it
-
-		buffer = read_file(fd, buffer);
-		//if (buffer == NULL)
-		//	return (NULL);
-	
-
-	i++;
-	
-	line = only_line(buffer);
-	buffer = new_buffer(buffer);
-	if(buffer == NULL)
-		i = 0;
-
-	return(line);
+		return (NULL);
+//	printf("There1\n");
+	buffer = read_file(fd, buffer);
+	if (!buffer)
+		return (NULL);
+	line = ft_line(buffer);
+//	printf("There2\n");
+	buffer = ft_next(buffer);
+//	printf("There3\n");
+	return (line);
 }
 
-int main()
+/*int main(void)
 {
-    int fd;
+	int fd;
     char *line;
 	char *line2;
 	char *line3;
@@ -243,17 +142,15 @@ int main()
 	char *line5;
 	char *line6;
 
-	fd = open("test.txt", O_RDONLY);
+    fd = open("test.txt", O_RDONLY);
 
 	line = get_next_line(fd);
 	line2 = get_next_line(fd);
 
-	printf("Line read:\n%s\n", line);
+    printf("Line read:\n%s\n", line);
 	printf("Line read:\n%s\n", line2);
 
-	free(line);
-	free(line2);
-	close (fd);
+	close(fd);
 
 
 	fd = open("test.txt", O_RDONLY);
@@ -266,22 +163,16 @@ int main()
 	line5 = get_next_line(fd);
 	line6 = get_next_line(fd);
 
-	printf("\033[5;35m\n\n");
-
-	printf("Line read:\n%s\n", line);
+//	printf("%d\n", BUFFER_SIZE);
+    printf("Line read:\n%s\n", line);
 	printf("Line read:\n%s\n", line2);
 	printf("Line read:\n%s\n", line3);
 	printf("Line read:\n%s\n", line4);
 	printf("Line read:\n%s\n", line5);
 	printf("Line read:\n%s\n", line6);
 
-	free(line);
-	free(line6);
-	free(line2);
-	free(line3);
-	free(line4);
-	free(line5);
+    free(line);
     close(fd);
 
     return 0;
-}
+}*/
