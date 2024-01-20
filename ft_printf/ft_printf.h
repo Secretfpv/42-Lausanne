@@ -24,6 +24,6 @@ int	ft_printf(const char *, ...);
 int	ft_strlen(const char *str);
 int	ivalue(int i);
 int	i_power(int num);
-//void	Hexa_print(int number, char *base);
+int string_write(va_list args, int len);
 
 #endif

@@ -56,27 +56,19 @@ int	i_power(int num)
 	return (i);
 }
 
-// changing from void to char
-//void	Hexa_print(int number, char *base)
-//{
-
-	//int i;      gonna use it for the lenght of the string
-
-	//i = ft_strlen(base);
-	//printf("\n I_Value: %d\n", i);
-	//printf("\n Base: %s\n", base);
-//	if (number <= 0 && number >= 9)
-//	{
-		//ret = number + 48;
-		
-//		ft_putnbr_fd(number, 1);
-		//printf("%d", number);
-//	}
-//	else
-//	{
-		//ret = base[number];
-		
-//		ft_putchar_fd(base[number], 1);
-//	}
-		//printf("%c", base[number]);
-//}
+int string_write(va_list args, int len)
+{
+	char *currentArg;
+	
+	while ((currentArg = va_arg(args, char *)) != NULL)
+    {
+    	len = len + ft_strlen(currentArg);
+    	ft_putstr_fd(currentArg, 1);
+    }
+	if ((currentArg = va_arg(args, char *)) == NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		len = len + 6;
+	}
+return (len);
+}
