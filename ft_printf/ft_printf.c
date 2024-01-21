@@ -67,13 +67,13 @@ void	base(unsigned int num, char *base)
 	}
 }
 
-int	replace(char c, va_list args, int len)
+int	replace(char c, va_list args, int len, int i)
 {
 	if(c == 'd')
 		ft_putnbr_fd(va_arg(args, int), 1);
 	else if (c == 's')
 	{
-		len = string_write(args, len);
+		len = string_write(args, len, i);
 		//ft_putstr_fd(va_arg(args, char *), 1);
 	}
 	else if (c == 'c')
@@ -117,7 +117,7 @@ int	ft_printf(const char *sign, ...)
 	{
 		if(sign[i] == '%')
 		{
-			len = replace(sign[i+1], args, len);
+			len = replace(sign[i+1], args, len, i);
 				i = i + 2;
 		}
 		else
@@ -142,9 +142,11 @@ int	ft_printf(const char *sign, ...)
 /*int main()
 {
 	printf("My Tests:\n");
-	printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
+	printf("\nNumber of chars: %d\n", ft_printf("%s%s%sx", "And ", "some", "joined"));
+	//printf("\nNumber of chars: %d\n", ft_printf("%s", ""));
 	printf("\n-------------\n\nShould get:\n");
-	printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
+	printf("\nNumber of chars: %d\n", printf("%s%s%sx", "And ", "some", "joined"));
+	//printf("\nNumber of chars: %d\n", printf("%s", ""));
 }*/
 
 // gcc -g ft_printf.c ft_printf_utils.c -Ilibft -Llibft -lft
