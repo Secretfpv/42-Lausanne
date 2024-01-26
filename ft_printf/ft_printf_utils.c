@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 16:31:24 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/17 16:31:24 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/01/25 20:24:19 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/01/25 20:32:53 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,21 @@ int string_write(va_list args, int len, int i)
 	char *currentArg;
 	
 	//ft_putnbr_fd(i, 1);
-	while (i >= 0 && ((currentArg = va_arg(args, char *)) != NULL))
+
+	while (i >= 0 && (!(currentArg = va_arg(args, char *))))
     {
 		//currentArg = va_arg(args, char *);
     	len = len + ft_strlen(currentArg);
     	ft_putstr_fd(currentArg, 1);
-	//	write(1, "HELLO", 5);
+		
 	//	ft_putnbr_fd(i, 1);
     }
-	if ((currentArg = va_arg(args, char *)) == NULL)
-	{
-		ft_putstr_fd("(null)", 1);
-		len = len + 6;
-	}
+	
+	//if ((currentArg = va_arg(args, char *)) == NULL)
+	//{
+	//	ft_putstr_fd("(null)", 1);
+	//	len = len + 6;
+	//}
 return (len);
 }
 
