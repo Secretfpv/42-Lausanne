@@ -56,13 +56,13 @@ int	i_power(int num)
 	return (i);
 }
 
-int string_write(va_list args, int len, int i)
+int string_write(va_list args, int len)
 {
 	char *currentArg;
 	
 	//ft_putnbr_fd(i, 1);
 
-	while (i >= 0 && (!(currentArg = va_arg(args, char *))))
+	while ((currentArg = va_arg(args, char *)) != NULL)
     {
 		//currentArg = va_arg(args, char *);
     	len = len + ft_strlen(currentArg);
@@ -71,13 +71,35 @@ int string_write(va_list args, int len, int i)
 	//	ft_putnbr_fd(i, 1);
     }
 	
-	//if ((currentArg = va_arg(args, char *)) == NULL)
-	//{
-	//	ft_putstr_fd("(null)", 1);
-	//	len = len + 6;
-	//}
+	if ((currentArg = va_arg(args, char *)) == NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		len = len + 6;
+	}
 return (len);
 }
 
+/*int string_write(va_list args, int len)
+{
+	char *currentArg;
+	char *string = va_arg(args, char *);
 
+	if (*string == '\0') {
+		ft_putchar_fd('\0', 1);
+		return (len);
+	}
+	if ((currentArg = va_arg(args, char *)) == NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		len = len + 6;
+	}
+
+	while (*string != '\0')
+	{
+		ft_putchar_fd(*string, 1);
+		len++;
+		string++;
+	}
+	return (len);
+}*/
 //(currentArg = va_arg(args, char *)) == NULL
