@@ -56,7 +56,7 @@ int	i_power(int num)
 	return (i);
 }
 
-int string_write(va_list args, int len)
+/*int string_write(va_list args, int len)
 {
 	char *currentArg;
 	
@@ -77,22 +77,27 @@ int string_write(va_list args, int len)
 		len = len + 6;
 	}
 return (len);
-}
+}*/
 
-/*int string_write(va_list args, int len)
+int string_write(va_list args, int len)
 {
 	char *currentArg;
 	char *string = va_arg(args, char *);
 
-	if (*string == '\0') {
+	/*if (*string == '\0') {
 		ft_putchar_fd('\0', 1);
 		return (len);
-	}
-	if ((currentArg = va_arg(args, char *)) == NULL)
+	}*/
+	/*if ((currentArg = va_arg(args, char *)) == NULL)
 	{
 		ft_putstr_fd("(null)", 1);
 		len = len + 6;
-	}
+	}*/
+
+	printf("%s", string);
+
+	if (string == NULL)
+		printf("hello");
 
 	while (*string != '\0')
 	{
@@ -101,5 +106,5 @@ return (len);
 		string++;
 	}
 	return (len);
-}*/
+}
 //(currentArg = va_arg(args, char *)) == NULL
