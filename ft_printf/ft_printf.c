@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 14:46:21 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/12 15:15:56 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/12 15:19:20 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int Address(void *ptr, int len)
 	buffer[1] = 'x';
 	for (int i = 13; i >= 2; i--)
 	{
-        buffer[i + 2] = hexChars[address % 16];
+        buffer[i - 2] = hexChars[address % 16];
         address /= 16;
     }
 
