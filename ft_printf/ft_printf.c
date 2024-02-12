@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 14:46:21 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/12 15:24:32 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/12 16:37:26 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ int Address(void *ptr, int len)
     char buffer[18];
     buffer[17] = '\0';
 
+	if(ptr == NULL) {
+		ft_putstr_fd("(nil)", 1);
+		return (len + 5);
+	}
+	else {
     unsigned long long address = (unsigned long long)ptr;
 
 	buffer[0] = '0';
@@ -33,6 +38,7 @@ int Address(void *ptr, int len)
 
     write(1, buffer, 16);
 	return (len + 14);
+	}
 }
 
 void	base(unsigned int num, char *base)
@@ -142,15 +148,15 @@ int	ft_printf(const char *sign, ...)
 
 
 
-/*int main()
+int main()
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("%p", ""));
+	printf("\nNumber of chars: %d\n", ft_printf("%p", NULL));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("%p", ""));
-}*/
+	printf("\nNumber of chars: %d\n", printf("%p", NULL));
+}
 
 // gcc -g ft_printf.c ft_printf_utils.c -Ilibft -Llibft -lft
 // !!!! Make clean and Make every time
