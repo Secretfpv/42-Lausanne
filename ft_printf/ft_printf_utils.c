@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 20:24:19 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/25 20:32:53 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/12 13:32:38 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/12 13:32:38 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ return (len);
 
 int string_write(va_list args, int len)
 {
-	char *currentArg;
+	//char *currentArg;
 	char *string = va_arg(args, char *);
 
 	/*if (*string == '\0') {
