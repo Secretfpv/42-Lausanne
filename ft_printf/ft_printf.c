@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 14:46:21 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/12 16:38:40 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/12 16:46:57 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ int Address(void *ptr, int len)
 	else {
     unsigned long long address = (unsigned long long)ptr;
 
-	buffer[0] = '0';
-	buffer[1] = 'x';
 	for (int i = 13; i >= 2; i--)
 	{
-        buffer[i - 3] = hexChars[address % 16];
+        buffer[i] = hexChars[address % 16];
         address /= 16;
     }
 	buffer[0] = '0';
@@ -148,15 +146,15 @@ int	ft_printf(const char *sign, ...)
 
 
 
-/*int main()
+int main()
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("%p", NULL));
+	printf("\nNumber of chars: %d\n", ft_printf("%p", ""));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("%p", NULL));
-}*/
+	printf("\nNumber of chars: %d\n", printf("%p", ""));
+}
 
 // gcc -g ft_printf.c ft_printf_utils.c -Ilibft -Llibft -lft
 // !!!! Make clean and Make every time
