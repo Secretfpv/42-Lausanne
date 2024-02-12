@@ -6,14 +6,14 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 14:46:21 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/12 14:46:21 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/12 15:02:19 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 
-void Address(void *ptr)
+int Address(void *ptr, int len)
 {
     const char hexChars[] = "0123456789abcdef";
     char buffer[18];
@@ -30,6 +30,7 @@ void Address(void *ptr)
     }
 
     write(1, buffer, 16);
+	return (len + 14);
 }
 
 void	base(unsigned int num, char *base)
@@ -73,7 +74,7 @@ int	replace(char c, va_list args, int len)
 		ft_putnbr_fd(va_arg(args, int), 1);
 	else if (c == 's')
 	{
-		len = string_write(args, len);
+		len = len + string_write(args, len);
 		//ft_putstr_fd(va_arg(args, char *), 1);
 	}
 	else if (c == 'c')
@@ -82,7 +83,7 @@ int	replace(char c, va_list args, int len)
 		len++;
 	}
 	else if (c == 'p')
-		Address(va_arg(args, void *));
+		len = len + Address(va_arg(args, void *), len);
 	else if (c == 'u')
 		ft_putnbr_fd(va_arg(args, unsigned int), 1);
 	else if (c == '%')
@@ -139,15 +140,15 @@ int	ft_printf(const char *sign, ...)
 
 
 
-/*int main()
+int main()
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("%ss%ss%ss", "And ", "some other", "joined"));
+	printf("\nNumber of chars: %d\n", ft_printf("%p", ""));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("%ss%ss%ss", "And ", "some other", "joined"));
-}*/
+	printf("\nNumber of chars: %d\n", printf("%p", ""));
+}
 
 // gcc -g ft_printf.c ft_printf_utils.c -Ilibft -Llibft -lft
 // !!!! Make clean and Make every time
