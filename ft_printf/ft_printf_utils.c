@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 13:32:38 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/12 13:32:38 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/12 14:34:11 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/12 14:34:11 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,23 @@ int string_write(va_list args, int len)
 	//char *currentArg;
 	char *string = va_arg(args, char *);
 
+	//printf("%s", string);
+	
+	if(string == NULL) {
+		ft_putstr_fd("(null)", 1);
+		//printf("(null)");
+		len = len + 6;
+	}
+
+	else if(string == "")
+		ft_putstr_fd("", 1);
+		//printf("");
+	else if(string != "") {
+		ft_putstr_fd(string, 1);
+		//printf("%s", string);
+		len = len + ft_strlen(string);
+	}
+
 	/*if (*string == '\0') {
 		ft_putchar_fd('\0', 1);
 		return (len);
@@ -94,17 +111,20 @@ int string_write(va_list args, int len)
 		len = len + 6;
 	}*/
 
-	printf("%s", string);
+	/*printf("%s", string);
 
 	if (string == NULL)
-		printf("hello");
-
-	while (*string != '\0')
+		printf("hello");*/
+	/*if (string != "")
 	{
-		ft_putchar_fd(*string, 1);
-		len++;
-		string++;
-	}
+		printf("hello");
+		while (string != '\0')
+		{
+			ft_putchar_fd(*string, 1);
+			len++;
+			string++;
+		}
+	}*/
 	return (len);
 }
 //(currentArg = va_arg(args, char *)) == NULL
