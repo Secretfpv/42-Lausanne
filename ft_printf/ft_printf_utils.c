@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 14:34:11 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/12 14:34:11 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/12 14:40:27 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,10 @@ int string_write(va_list args, int len)
 		len = len + 6;
 	}
 
-	else if(string == "")
+	else if(ft_strcmp(string, "") == 0)
 		ft_putstr_fd("", 1);
 		//printf("");
-	else if(string != "") {
+	else if(ft_strcmp(string, "") != 0) {
 		ft_putstr_fd(string, 1);
 		//printf("%s", string);
 		len = len + ft_strlen(string);
