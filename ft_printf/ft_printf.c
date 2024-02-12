@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 14:46:21 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/12 15:03:25 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/12 15:06:45 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	replace(char c, va_list args, int len)
 		ft_putnbr_fd(va_arg(args, int), 1);
 	else if (c == 's')
 	{
-		len = len + string_write(args, len);
+		len = string_write(args, len);
 		//ft_putstr_fd(va_arg(args, char *), 1);
 	}
 	else if (c == 'c')
