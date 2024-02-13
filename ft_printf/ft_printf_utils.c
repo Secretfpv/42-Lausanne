@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 14:41:27 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/13 14:46:30 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/13 15:31:23 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/13 15:31:32 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,14 @@ int buffer_move(char* buffer, int len)
 		i++;
 		j++;
 	}
+	if(buffer[j] == '\0')
+    {
+      while(buffer[i] != '\0')
+      {
+        buffer[i] = '\0';
+        i++;
+      }
+    }
 	i = ft_strlen(buffer);
 	//printf("\nThis is my i: %d\n", i);
 	//printf("\nThis is my copy: %d\n", copy);
