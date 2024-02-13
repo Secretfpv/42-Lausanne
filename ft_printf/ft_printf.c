@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 11:50:54 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/13 11:50:54 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/13 11:55:00 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int Address(void *ptr, int len)
 	int i;
 
 	if(ptr == NULL) {
-		ft_putstr_fd("(nil)", 1);
-		return (len + 5);
+		ft_putstr_fd("0x0", 1);
+		return (len + 3);
 	}
 	else {
     unsigned long long address = (unsigned long long)ptr;
