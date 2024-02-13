@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 11:50:54 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/13 11:59:26 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/13 12:39:46 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/13 12:39:46 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,15 @@
 int Address(void *ptr, int len)
 {
     const char hexChars[] = "0123456789abcdef";
-    char buffer[18];
-    buffer[17] = '\0';
+    char buffer[25];
+    buffer[24] = '\0';
 	int i;
 
+	i = 23;
+	while(i >= 0) {
+		buffer[i] = '0';
+		i--;
+	}
 	if(ptr == NULL) {
 		ft_putstr_fd("0x0", 1);
 		return (len + 3);
@@ -27,7 +32,7 @@ int Address(void *ptr, int len)
 	else {
     unsigned long long address = (unsigned long long)ptr;
 
-	for (i = 17; i >= 0; i--)
+	for (i = 23; i >= 0; i--)
 	{
         buffer[i] = hexChars[address % 16];
         address /= 16;
@@ -151,7 +156,7 @@ int	ft_printf(const char *sign, ...)
 
 
 
-/*int main()
+int main()
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
@@ -159,7 +164,7 @@ int	ft_printf(const char *sign, ...)
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
 	printf("\nNumber of chars: %d\n", printf("%p", ""));
-}*/
+}
 
 // gcc -g ft_printf.c ft_printf_utils.c -Ilibft -Llibft -lft
 // !!!! Make clean and Make every time
