@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 11:27:27 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/13 11:27:27 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/13 15:47:20 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/13 15:47:20 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h> // dont forget to remove
 //# include "/home/michal/Lausanne_42/libft/libft.h"
 # include "libft/libft.h"
+# include <limits.h>
 
 int	ft_printf(const char *, ...);
 int	ft_strlen(const char *str);

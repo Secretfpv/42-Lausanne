@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 14:48:54 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/13 14:48:54 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/13 15:48:01 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/13 16:04:50 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int Address(void *ptr, int len)
     }
 	
 	len = buffer_move(buffer, len);
+	//printf("\n This is len: %d\n", len);
 	//printf("%s\n", buffer);
 
 	//buffer[0] = '0';
@@ -99,7 +100,7 @@ int	replace(char c, va_list args, int len)
 		len++;
 	}
 	else if (c == 'p')
-		len = len + Address(va_arg(args, void *), len);
+		len = Address(va_arg(args, void *), len);
 	else if (c == 'u')
 		ft_putnbr_fd(va_arg(args, unsigned int), 1);
 	else if (c == '%')
@@ -156,15 +157,15 @@ int	ft_printf(const char *sign, ...)
 
 
 
-/*int main()
+int main()
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("%p", ""));
+	printf("\nNumber of chars: %d\n", ft_printf("0x%p-", (void *)ULONG_MAX + 4));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("%p", ""));
-}*/
+	printf("\nNumber of chars: %d\n", printf("0x%p-", (void *)ULONG_MAX + 4));
+}
 
 // gcc -g ft_printf.c ft_printf_utils.c -Ilibft -Llibft -lft
 // !!!! Make clean and Make every time
