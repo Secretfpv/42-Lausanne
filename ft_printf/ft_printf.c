@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 14:46:21 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/13 11:00:18 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/13 11:48:57 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/13 11:48:57 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int Address(void *ptr, int len)
     const char hexChars[] = "0123456789abcdef";
     char buffer[18];
     buffer[17] = '\0';
+	int i;
 
 	if(ptr == NULL) {
 		ft_putstr_fd("(nil)", 1);
@@ -26,16 +27,20 @@ int Address(void *ptr, int len)
 	else {
     unsigned long long address = (unsigned long long)ptr;
 
-	for (int i = 13; i >= 0; i--)
+	for (i = 13; i >= 0; i--)
 	{
         buffer[i] = hexChars[address % 16];
         address /= 16;
     }
-	buffer[0] = '0';
-	buffer[1] = 'x';
+	
+	len = buffer_move(buffer, len);
+	//printf("%s\n", buffer);
 
-    write(1, buffer, 16);
-	return (len + 14);
+	//buffer[0] = '0';
+	//buffer[1] = 'x';
+
+    //write(1, buffer, 16);
+	return (len);
 	}
 }
 
@@ -146,7 +151,7 @@ int	ft_printf(const char *sign, ...)
 
 
 
-/*int main()
+int main()
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
@@ -154,7 +159,7 @@ int	ft_printf(const char *sign, ...)
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
 	printf("\nNumber of chars: %d\n", printf("%p", ""));
-}*/
+}
 
 // gcc -g ft_printf.c ft_printf_utils.c -Ilibft -Llibft -lft
 // !!!! Make clean and Make every time

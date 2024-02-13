@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 14:34:11 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/12 14:45:22 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/13 11:49:30 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/13 11:49:37 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,28 +56,36 @@ int	i_power(int num)
 	return (i);
 }
 
-/*int string_write(va_list args, int len)
+int buffer_move(char* buffer, int len)
 {
-	char *currentArg;
-	
-	//ft_putnbr_fd(i, 1);
+	int i;
+	int j;
+	int copy;
 
-	while ((currentArg = va_arg(args, char *)) != NULL)
-    {
-		//currentArg = va_arg(args, char *);
-    	len = len + ft_strlen(currentArg);
-    	ft_putstr_fd(currentArg, 1);
-		
-	//	ft_putnbr_fd(i, 1);
-    }
-	
-	if ((currentArg = va_arg(args, char *)) == NULL)
+	j = 0;
+	//i = ft_strlen(buffer);
+	i = 0;
+	//printf("\nold buffer: %s\n", buffer);
+
+	while(buffer[j] == '0')
 	{
-		ft_putstr_fd("(null)", 1);
-		len = len + 6;
+		j++;
 	}
-return (len);
-}*/
+	copy = j;
+	while(buffer[j] != '\0')
+	{
+		buffer[i] = buffer[j];
+		i++;
+		j++;
+	}
+	i = ft_strlen(buffer);
+	write(1, "0x", 2);
+	write(1, buffer, i - copy);
+	//printf("This is my new buffer: %s\n", buffer);
+	len = len + i - copy + 2;
+	//printf("\n This is len: %d\n", len);
+	return(len);
+}
 
 int string_write(va_list args, int len)
 {

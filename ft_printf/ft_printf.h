@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 16:27:39 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/01/17 16:27:39 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/13 11:27:27 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/13 11:27:27 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	ft_printf(const char *, ...);
 int	ft_strlen(const char *str);
 int	ivalue(int i);
 int	i_power(int num);
+int buffer_move(char* buffer, int len);
 int string_write(va_list args, int len);
 
 #endif
