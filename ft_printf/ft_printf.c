@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 14:46:21 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/12 16:53:03 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/13 11:00:18 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int Address(void *ptr, int len)
 	else {
     unsigned long long address = (unsigned long long)ptr;
 
-	for (int i = 11; i >= 0; i--)
+	for (int i = 13; i >= 0; i--)
 	{
         buffer[i] = hexChars[address % 16];
         address /= 16;
