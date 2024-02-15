@@ -6,11 +6,20 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:48:01 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/13 16:06:07 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/15 13:00:48 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+
+int decimal(int number, int len)
+{
+	len = len + ft_strlen(ft_itoa(number));
+	ft_putnbr_fd(number, 1);
+	//printf("This is my number: %d\nAnd this is my len: %d", number, len);
+	return(len);
+}
 
 
 int Address(void *ptr, int len)
@@ -87,8 +96,9 @@ void	base(unsigned int num, char *base)
 
 int	replace(char c, va_list args, int len)
 {
-	if(c == 'd')
-		ft_putnbr_fd(va_arg(args, int), 1);
+	if(c == 'd') {
+		len = len + decimal(va_arg(args, int), len);
+	}
 	else if (c == 's')
 	{
 		len = string_write(args, len);
@@ -157,15 +167,15 @@ int	ft_printf(const char *sign, ...)
 
 
 
-/*int main()
+int main()
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("0x%p-", (void *)ULONG_MAX + 4));
+	printf("\nNumber of chars: %d\n", ft_printf("%d", 0));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("0x%p-", (void *)ULONG_MAX + 4));
-}*/
+	printf("\nNumber of chars: %d\n", printf("%d", 0));
+}
 
 // gcc -g ft_printf.c ft_printf_utils.c -Ilibft -Llibft -lft
 // !!!! Make clean and Make every time
