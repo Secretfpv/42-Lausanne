@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:48:01 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/15 13:22:22 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/15 13:29:59 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	base(unsigned int num, char *base)
 
 int	replace(char c, va_list args, int len)
 {
-	if(c == 'd') {
+	if(c == 'd' || c == 'i') {
 		len = decimal(va_arg(args, int), len);
 	}
 	else if (c == 's')
@@ -175,10 +175,10 @@ int	ft_printf(const char *sign, ...)
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("dgs%dxx", 10));
+	printf("\nNumber of chars: %d\n", ft_printf("%i", 0));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("dgs%dxx", 10));
+	printf("\nNumber of chars: %d\n", printf("%i", 0));
 }*/
 
 // gcc -g ft_printf.c ft_printf_utils.c -Ilibft -Llibft -lft
