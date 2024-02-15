@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:48:01 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/15 13:29:59 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/15 13:33:13 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,8 @@ void	base(unsigned int num, char *base)
 
 int	replace(char c, va_list args, int len)
 {
-	if(c == 'd' || c == 'i') {
+	if(c == 'd' || c == 'i')
 		len = decimal(va_arg(args, int), len);
-	}
 	else if (c == 's')
 	{
 		len = string_write(args, len);
@@ -116,7 +115,7 @@ int	replace(char c, va_list args, int len)
 	else if (c == 'p')
 		len = Address(va_arg(args, void *), len);
 	else if (c == 'u')
-		ft_putnbr_fd(va_arg(args, unsigned int), 1);
+		len = unsint(va_arg(args, unsigned int), len);// ft_putnbr_fd(va_arg(args, unsigned int), 1);
 	else if (c == '%')
 	{
 		ft_putchar_fd('%', 1);
@@ -171,15 +170,15 @@ int	ft_printf(const char *sign, ...)
 
 
 
-/*int main()
+int main()
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("%i", 0));
+	printf("\nNumber of chars: %d\n", ft_printf("%u", 0));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("%i", 0));
-}*/
+	printf("\nNumber of chars: %d\n", printf("%u", 0));
+}
 
 // gcc -g ft_printf.c ft_printf_utils.c -Ilibft -Llibft -lft
 // !!!! Make clean and Make every time

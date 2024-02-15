@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 15:53:27 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/13 15:59:16 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/15 13:42:03 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/15 13:42:03 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,31 +122,19 @@ int string_write(va_list args, int len)
 		//printf("%s", string);
 		len = len + ft_strlen(string);
 	}
-
-	/*if (*string == '\0') {
-		ft_putchar_fd('\0', 1);
-		return (len);
-	}*/
-	/*if ((currentArg = va_arg(args, char *)) == NULL)
-	{
-		ft_putstr_fd("(null)", 1);
-		len = len + 6;
-	}*/
-
-	/*printf("%s", string);
-
-	if (string == NULL)
-		printf("hello");*/
-	/*if (string != "")
-	{
-		printf("hello");
-		while (string != '\0')
-		{
-			ft_putchar_fd(*string, 1);
-			len++;
-			string++;
-		}
-	}*/
 	return (len);
 }
+
+int unsint(unsigned int number, int len)
+{
+	char *num2;
+
+	num2 = ft_itoa(number);
+	len = len + ft_strlen(num2);
+	ft_putnbr_fd(number, 1);
+	free(num2);
+	//printf("This is my number: %d\nAnd this is my len: %d", number, len);
+	return(len);
+}
+
 //(currentArg = va_arg(args, char *)) == NULL
