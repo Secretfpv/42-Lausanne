@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 13:42:03 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/15 13:42:03 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/15 13:50:29 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/15 14:10:42 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,14 +125,27 @@ int string_write(va_list args, int len)
 	return (len);
 }
 
-int unsint(unsigned int number, int len)
+int unsint(/*unsigned*/ int number, int len)
 {
 	char *num2;
+//	unsigned int new = number;
 
+	//new = number
+//	printf("This is my number: %u\n", number);
+//	printf("This is my num:    %u\n", new);
+	
+	if (number < 0)
+	{
+		ft_putstr_fd("hello", 1);
+	}
+
+
+	else if (number <= 0) {
 	num2 = ft_itoa(number);
 	len = len + ft_strlen(num2);
 	ft_putnbr_fd(number, 1);
 	free(num2);
+	}
 	//printf("This is my number: %d\nAnd this is my len: %d", number, len);
 	return(len);
 }
