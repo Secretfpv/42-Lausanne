@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 16:56:52 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/15 16:56:52 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/15 20:24:21 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/15 20:26:07 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int Address(void *ptr, int len)
 	}
 }
 
-void	base(unsigned int num, char *base)
+int	base(unsigned int num, char *base, int len)
 {
 	int x;
 	int i_pow;
@@ -86,6 +86,7 @@ void	base(unsigned int num, char *base)
 		}
 		//Hexa_print(x, base);
 		ft_putchar_fd(base[x], 1);
+		len++;
 		
 		//ft_putchar_fd(Hexa_print(x, base), 1);
 	}
@@ -93,9 +94,10 @@ void	base(unsigned int num, char *base)
 	{
 		//Hexa_print(num, base);
 		ft_putchar_fd(base[num], 1);
-
+		len++;
 	//	ft_putchar_fd(Hexa_print(num, base), 1);
 	}
+	return (len);
 }
 
 int	replace(char c, va_list args, int len)
@@ -123,10 +125,10 @@ int	replace(char c, va_list args, int len)
 	}
 	else if (c == 'x')
 	{
-		base(va_arg(args, unsigned int), "0123456789abcdef");
+		len = base(va_arg(args, unsigned int), "0123456789abcdef", len);
 	}
 	else if (c == 'X')
-		base(va_arg(args, unsigned int), "0123456789ABCDEF");
+		len = base(va_arg(args, unsigned int), "0123456789ABCDEF", len);
 
 	return (len);
 }
