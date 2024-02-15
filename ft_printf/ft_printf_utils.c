@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 13:50:29 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/15 14:10:42 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/15 16:47:43 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/15 16:47:43 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,29 +125,56 @@ int string_write(va_list args, int len)
 	return (len);
 }
 
-int unsint(/*unsigned*/ int number, int len)
+int unsint2(/*unsigned*/ int number, int len)
 {
 	char *num2;
-//	unsigned int new = number;
+	unsigned int num;
+	long int x;
 
 	//new = number
-//	printf("This is my number: %u\n", number);
+//	printf("This is my number: %ld\n", LONG_MAX);
 //	printf("This is my num:    %u\n", new);
-	
-	if (number < 0)
+
+	if ((int)number < 0)
 	{
-		ft_putstr_fd("hello", 1);
+		num = (unsigned int)(UINT_MAX + 1 + number);
+		//num = 4294967296;
+		//x = num + 2147483647 + 1;
+		num2 = ft_itoa((unsigned int)num);
+		printf("num2: %s\n", num2);
+		printf("number: %d\n", number);
+		len = len + ft_strlen(num2);
+		ft_putstr_fd(num2, 1);
+		free(num2);
 	}
 
 
-	else if (number <= 0) {
+	/*else if ((int)number >= 0) {
 	num2 = ft_itoa(number);
 	len = len + ft_strlen(num2);
 	ft_putnbr_fd(number, 1);
 	free(num2);
-	}
+	}*/
 	//printf("This is my number: %d\nAnd this is my len: %d", number, len);
 	return(len);
 }
 
-//(currentArg = va_arg(args, char *)) == NULL
+
+int unsint(unsigned int number, int len)
+{
+    char *num2;
+
+    if (number > INT_MAX) {
+        num2 = ft_utoa(number); // Assuming ft_utoa() converts unsigned int to string
+        len += ft_strlen(num2);
+        ft_putstr_fd(num2, 1); // Assuming ft_putstr_fd() writes a string to file descriptor 1 (stdout)
+        free(num2);
+    } else {
+        num2 = ft_itoa((int)number); // Assuming ft_itoa() converts int to string
+        len += ft_strlen(num2);
+        ft_putstr_fd(num2, 1);
+        free(num2);
+    }
+
+    return len;
+}

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 14:11:42 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/15 14:11:42 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/15 16:48:14 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/15 16:49:17 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,13 +174,13 @@ int	ft_printf(const char *sign, ...)
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("%u", -10));
+	printf("\nNumber of chars: %d\n", ft_printf("%u", -2000));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("%u", -10));
+	printf("\nNumber of chars: %d\n", printf("%u", -2000));
 }*/
 
-// gcc -g ft_printf.c ft_printf_utils.c -Ilibft -Llibft -lft
+// gcc -g ft_printf.c ft_printf_utils.c ft_printf_utils2.c -Ilibft -Llibft -lft
 // !!!! Make clean and Make every time
 
 /*int main(void)

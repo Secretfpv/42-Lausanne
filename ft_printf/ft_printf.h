@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 14:01:01 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/15 14:01:01 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/15 16:42:33 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/15 16:42:33 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	ivalue(int i);
 int	i_power(int num);
 int buffer_move(char* buffer, int len);
 int string_write(va_list args, int len);
-int unsint(/*unsigned*/ int number, int len);
+int unsint(unsigned int number, int len);
+char* ft_utoa(unsigned int num);
 
 #endif
