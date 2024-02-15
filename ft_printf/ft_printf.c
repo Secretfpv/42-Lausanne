@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 20:24:21 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/15 20:27:09 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/15 21:39:16 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,39 +63,32 @@ int Address(void *ptr, int len)
 	}
 }
 
-int	base(unsigned int num, char *base, int len)
+int	base(int num, char *base, int len)
 {
 	int x;
 	int i_pow;
 	unsigned int n;
 
-	//ft_putstr_fd("Hello", 1);
-
-	while (num > 15)
-	{
-		x = 0;
-		i_pow = i_power(num);
-		//printf("\n\n I_Pow: %d", i_pow);
-		//printf("\n I_Value (i_pow): %d", ivalue(i_pow));
-		//printf("\n Num Before print: %d", num);
-		n = ivalue(i_pow);
-		while (num > n)
-		{
-			num = num - ivalue(i_pow);
-			x++;
+	//printf("My number: %d", num);
+	if(num >= 0) {
+		while (num > 15) {
+			x = 0;
+			i_pow = i_power(num);
+			n = ivalue(i_pow);
+			while (num > n) {
+				num = num - ivalue(i_pow);
+				x++;
+			}
+			ft_putchar_fd(base[x], 1);
+			len++;
 		}
-		//Hexa_print(x, base);
-		ft_putchar_fd(base[x], 1);
-		len++;
-		
-		//ft_putchar_fd(Hexa_print(x, base), 1);
+		if (num <= 15) {
+			ft_putchar_fd(base[num], 1);
+			len++;
+		}
 	}
-	if (num <= 15)
-	{
-		//Hexa_print(num, base);
-		ft_putchar_fd(base[num], 1);
-		len++;
-	//	ft_putchar_fd(Hexa_print(num, base), 1);
+	if(num < 0) {
+		printf("hello");
 	}
 	return (len);
 }
@@ -125,10 +118,10 @@ int	replace(char c, va_list args, int len)
 	}
 	else if (c == 'x')
 	{
-		len = base(va_arg(args, unsigned int), "0123456789abcdef", len);
+		len = base(va_arg(args, int), "0123456789abcdef", len);
 	}
 	else if (c == 'X')
-		len = base(va_arg(args, unsigned int), "0123456789ABCDEF", len);
+		len = base(va_arg(args, int), "0123456789ABCDEF", len);
 
 	return (len);
 }
@@ -172,15 +165,15 @@ int	ft_printf(const char *sign, ...)
 
 
 
-/*int main()
+int main()
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("%x", 0));
+	printf("\nNumber of chars: %d\n", ft_printf("%x", -10));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("%x", 0));
-}*/
+	printf("\nNumber of chars: %d\n", printf("%x", -10));
+}
 
 // gcc -g ft_printf.c ft_printf_utils.c ft_printf_utils2.c -Ilibft -Llibft -lft
 // !!!! Make clean and Make every time
