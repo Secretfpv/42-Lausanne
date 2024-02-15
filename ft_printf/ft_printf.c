@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:48:01 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/15 13:03:02 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/15 13:09:02 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 
 int decimal(int number, int len)
 {
-	len = len + ft_strlen(ft_itoa(number));
+	char *num;
+
+	num = ft_itoa(number);
+	len = len + ft_strlen(num);
 	ft_putnbr_fd(number, 1);
+	free(num);
 	//printf("This is my number: %d\nAnd this is my len: %d", number, len);
 	return(len);
 }
