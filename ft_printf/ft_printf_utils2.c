@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 17:02:35 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/15 17:02:35 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/16 14:14:55 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/16 14:14:55 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,64 @@ char* ft_utoa(unsigned int num) {
     }
 
     return str;
+}
+
+int base_sixteen(int num, char *base, int len)
+{
+	int x;
+	int i_pow;
+	int n;
+	
+	//printf("\nI am here and this is my value: %d", num);
+	while (num > 15)
+	{
+		x = 0;
+		i_pow = i_power(num);
+		printf("\nThis is i_pow: %d", i_pow);
+		n = ivalue(i_pow);
+		printf("\nThis is i: %d", n);
+		while (num > n)
+		{
+			num = num - ivalue(i_pow);
+			x++;
+		}
+		//printf("This is x: %d", x);
+		ft_putchar_fd(base[x], 1);
+		len++;
+	}
+	if (num <= 15)
+	{
+		ft_putchar_fd(base[num], 1);
+		len++;
+	}
+	return(len);
+}
+
+int base_sixteenlong(long int num, char *base, int len)
+{
+	int x;
+	int i_pow;
+	int n;
+	
+	//printf("\nI am here1 and this is my value: %ld", num);
+	while (num > 15)
+	{
+		x = 0;
+		i_pow = i_power(num);
+		n = ivalue(i_pow);
+		while (num > n)	
+		{
+			num = num - ivalue(i_pow);
+			x++;
+		}
+		//printf("This is x: %d", x);
+		ft_putchar_fd(base[x], 1);
+		len++;
+	}
+	if (num <= 15)
+	{
+		ft_putchar_fd(base[num], 1);
+		len++;
+	}
+	return(len);
 }

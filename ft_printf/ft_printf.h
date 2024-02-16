@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 16:42:33 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/15 16:42:33 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/16 13:36:09 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/16 13:36:09 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ int buffer_move(char* buffer, int len);
 int string_write(va_list args, int len);
 int unsint(unsigned int number, int len);
 char* ft_utoa(unsigned int num);
+int base_sixteen(int num, char *base, int len);
+int base_sixteenlong(long int num, char *base, int len);
 
 #endif

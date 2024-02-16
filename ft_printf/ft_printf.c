@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 13:03:22 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/16 13:08:24 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/16 14:15:05 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/16 14:15:05 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,31 +65,21 @@ int Address(void *ptr, int len)
 
 int	base(int num, char *base, int len)
 {
-	int x;
-	int i_pow;
-	int n;
+	long int x;
 
-	//printf("My number: %d", num);
-	if(num >= 0) {
-		while (num > 15) {
-			x = 0;
-			i_pow = i_power(num);
-			n = ivalue(i_pow);
-			while (num > n) {
-				num = num - ivalue(i_pow);
-				x++;
-			}
-			//printf("This is x: %d", x);
-			ft_putchar_fd(base[x], 1);
-			len++;
-		}
-		if (num <= 15) {
-			ft_putchar_fd(base[num], 1);
-			len++;
-		}
-	}
-	if(num < 0) {
-		printf("hello");
+	if(num >= 0)
+		len = base_sixteen(num, base, len);
+	
+	if(num < 0)
+	{
+		//printf("hellooooo");
+		printf("\nInt max: %u", INT_MAX);
+
+		x = 4294967295 + num + 1;
+
+		//printf("\nThis is my new num: %ld", x);
+	
+		len = base_sixteenlong(x, base, len);
 	}
 	return (len);
 }
@@ -170,10 +160,10 @@ int	ft_printf(const char *sign, ...)
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("%x", 17));
+	printf("\nNumber of chars: %d\n", ft_printf("%x", 256));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("%x", 17));
+	printf("\nNumber of chars: %d\n", printf("%x", 256));
 }*/
 
 // gcc -g ft_printf.c ft_printf_utils.c ft_printf_utils2.c -Ilibft -Llibft -lft
