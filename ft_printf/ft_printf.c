@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:03:22 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/16 13:07:26 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/16 13:08:24 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,7 @@ int	ft_printf(const char *sign, ...)
 
 
 
-int main()
+/*int main()
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
@@ -174,7 +174,7 @@ int main()
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
 	printf("\nNumber of chars: %d\n", printf("%x", 17));
-}
+}*/
 
 // gcc -g ft_printf.c ft_printf_utils.c ft_printf_utils2.c -Ilibft -Llibft -lft
 // !!!! Make clean and Make every time
