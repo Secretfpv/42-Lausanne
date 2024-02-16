@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 20:24:21 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/15 21:39:16 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/16 13:03:22 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/16 13:07:26 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	base(int num, char *base, int len)
 {
 	int x;
 	int i_pow;
-	unsigned int n;
+	int n;
 
 	//printf("My number: %d", num);
 	if(num >= 0) {
@@ -79,6 +79,7 @@ int	base(int num, char *base, int len)
 				num = num - ivalue(i_pow);
 				x++;
 			}
+			//printf("This is x: %d", x);
 			ft_putchar_fd(base[x], 1);
 			len++;
 		}
@@ -169,10 +170,10 @@ int main()
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("%x", -10));
+	printf("\nNumber of chars: %d\n", ft_printf("%x", 17));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("%x", -10));
+	printf("\nNumber of chars: %d\n", printf("%x", 17));
 }
 
 // gcc -g ft_printf.c ft_printf_utils.c ft_printf_utils2.c -Ilibft -Llibft -lft
