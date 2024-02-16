@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 17:24:43 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/16 17:24:43 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/16 17:25:30 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	base(int num, char *base, int len)
 
 	if(num == INT_MIN)
 	{
-		ft_putstr_fd("ffffffff");
+		ft_putstr_fd("ffffffff", 1);
 		return(8);
 	}
 
