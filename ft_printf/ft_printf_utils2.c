@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 14:14:55 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/16 14:14:55 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/16 15:54:44 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/16 15:55:05 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,56 +42,89 @@ int base_sixteen(int num, char *base, int len)
 	int i_pow;
 	int n;
 	
-	//printf("\nI am here and this is my value: %d", num);
-	while (num > 15)
+	i_pow = i_power(num);
+	//printf("\nThis is i_pow: %d", i_pow);
+	n = ivalue(i_pow);
+	while(i_pow > 0)
 	{
 		x = 0;
-		i_pow = i_power(num);
-		printf("\nThis is i_pow: %d", i_pow);
-		n = ivalue(i_pow);
-		printf("\nThis is i: %d", n);
-		while (num > n)
+//		printf("\nThis is n: %d", n);
+//		printf("\nThis is my num: %d", num);
+//		printf("\nThis is i_pow: %d", i_pow);
+		if(num >= n)
 		{
-			num = num - ivalue(i_pow);
-			x++;
+			while(num >= n)
+			{
+				num = num - n;
+				x++;
+			}
+			i_pow--;
+//			printf("\nThis is i_pow: %d", i_pow);
+			n = ivalue(i_pow);
+//			printf("\nThis is i: %d", n);
+
+			ft_putchar_fd(base[x], 1);
+			len++;
+//			printf("\nI can put %d times %d.", x, n);
+//			printf("\nI have stil %d left.", num);
 		}
-		//printf("This is x: %d", x);
-		ft_putchar_fd(base[x], 1);
-		len++;
+		if(num < n && i_pow > 0)
+		{
+			ft_putchar_fd(base[0], 1);
+			len++;
+			i_pow--;
+		}
+
 	}
-	if (num <= 15)
-	{
-		ft_putchar_fd(base[num], 1);
-		len++;
-	}
+	ft_putchar_fd(base[num], 1);
+	len++;
 	return(len);
 }
 
-int base_sixteenlong(long int num, char *base, int len)
+int base_sixteenlong(unsigned long int num, char *base, int len)
 {
-	int x;
-	int i_pow;
-	int n;
+	{
+	unsigned long int x;
+	unsigned int i_pow;
+	unsigned long int n;
 	
-	//printf("\nI am here1 and this is my value: %ld", num);
-	while (num > 15)
+	printf("i am here: %ld", num);
+	i_pow = i_power(num);
+	//printf("\nThis is i_pow: %d", i_pow);
+	n = ivalue(i_pow);
+	while(i_pow > 0)
 	{
 		x = 0;
-		i_pow = i_power(num);
-		n = ivalue(i_pow);
-		while (num > n)	
+//		printf("\nThis is n: %d", n);
+//		printf("\nThis is my num: %d", num);
+//		printf("\nThis is i_pow: %d", i_pow);
+		if(num >= n)
 		{
-			num = num - ivalue(i_pow);
-			x++;
+			while(num >= n)
+			{
+				num = num - n;
+				x++;
+			}
+			i_pow--;
+//			printf("\nThis is i_pow: %d", i_pow);
+			n = ivalue(i_pow);
+//			printf("\nThis is i: %d", n);
+
+			ft_putchar_fd(base[x], 1);
+			len++;
+//			printf("\nI can put %d times %d.", x, n);
+//			printf("\nI have stil %d left.", num);
 		}
-		//printf("This is x: %d", x);
-		ft_putchar_fd(base[x], 1);
-		len++;
+		if(num < n && i_pow > 0)
+		{
+			ft_putchar_fd(base[0], 1);
+			len++;
+			i_pow--;
+		}
+
 	}
-	if (num <= 15)
-	{
-		ft_putchar_fd(base[num], 1);
-		len++;
-	}
+	ft_putchar_fd(base[num], 1);
+	len++;
 	return(len);
+}
 }

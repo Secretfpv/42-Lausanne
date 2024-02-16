@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 14:15:05 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/16 14:15:05 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/16 15:55:32 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/16 15:57:14 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int Address(void *ptr, int len)
 
 int	base(int num, char *base, int len)
 {
-	long int x;
+	unsigned long int x;
 
 	if(num >= 0)
 		len = base_sixteen(num, base, len);
@@ -73,12 +73,15 @@ int	base(int num, char *base, int len)
 	if(num < 0)
 	{
 		//printf("hellooooo");
-		printf("\nInt max: %u", INT_MAX);
+		printf("\nInt max: %d", INT_MAX);
+		printf("\nU max:   %u", INT_MAX);
+		printf("\nMy num:  %u", num);
+		printf("\nL Max:   %ld", LONG_MAX);
 
-		x = 4294967295 + num + 1;
 
-		//printf("\nThis is my new num: %ld", x);
-	
+		x = UINT_MAX + num + 1;
+
+		printf("\nThis is my new num: %ld", x);	
 		len = base_sixteenlong(x, base, len);
 	}
 	return (len);
@@ -160,10 +163,10 @@ int	ft_printf(const char *sign, ...)
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("%x", 256));
+	printf("\nNumber of chars: %d\n", ft_printf("%x", INT_MAX));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("%x", 256));
+	printf("\nNumber of chars: %d\n", printf("%x", INT_MAX));
 }*/
 
 // gcc -g ft_printf.c ft_printf_utils.c ft_printf_utils2.c -Ilibft -Llibft -lft
