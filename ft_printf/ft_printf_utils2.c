@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 15:54:44 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/16 15:55:05 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/16 17:08:05 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/16 17:14:48 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,18 @@ int base_sixteenlong(unsigned long int num, char *base, int len)
 {
 	{
 	unsigned long int x;
+	unsigned long int f;
 	unsigned int i_pow;
 	unsigned long int n;
-	
-	printf("i am here: %ld", num);
+
+	f = UINT_MAX + num + 1;
+	//num = num * -1;
+	num = num + 268435455 + 1;
+	ft_putstr_fd("f", 1);
+	len++;
+
+
+//	printf("i am here: %ld", num);
 	i_pow = i_power(num);
 	//printf("\nThis is i_pow: %d", i_pow);
 	n = ivalue(i_pow);
