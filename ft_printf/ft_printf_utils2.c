@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 17:16:32 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/16 17:16:32 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/16 17:17:43 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/16 17:17:43 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int base_sixteen(int num, char *base, int len)
 int base_sixteenlong(unsigned long int num, char *base, int len)
 {
 	{
-	unsigned long int x;
+	int x;
 	//unsigned long int f;
 	unsigned int i_pow;
 	unsigned long int n;
