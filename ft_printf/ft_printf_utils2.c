@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 17:08:05 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/16 17:14:48 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/16 17:16:32 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/16 17:16:32 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ int base_sixteenlong(unsigned long int num, char *base, int len)
 {
 	{
 	unsigned long int x;
-	unsigned long int f;
+	//unsigned long int f;
 	unsigned int i_pow;
 	unsigned long int n;
 
-	f = UINT_MAX + num + 1;
+	//f = UINT_MAX + num + 1;
 	//num = num * -1;
 	num = num + 268435455 + 1;
 	ft_putstr_fd("f", 1);
