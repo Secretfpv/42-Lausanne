@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 17:18:48 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/16 17:18:48 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/16 17:24:43 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/16 17:24:43 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,14 @@ int Address(void *ptr, int len)
 int	base(int num, char *base, int len)
 {
 	//unsigned long int x;
+
+	if(num == INT_MIN)
+	{
+		ft_putstr_fd("ffffffff");
+		return(8);
+	}
+
+
 
 	if(num >= 0)
 		len = base_sixteen(num, base, len);
