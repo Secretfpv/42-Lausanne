@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:19:57 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 17:11:33 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/18 20:35:33 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,34 @@
 
 char	*ft_utoa(unsigned int num)
 {
-	unsigned	int	temp;
-    int				length;
+	unsigned int	temp;
+	int				length;
 	char			*str;
 
 	temp = num;
 	length = 1;
-    while(temp /= 10)
+	while (temp /= 10)
 	{
-        length++;
-    }
-    str = (char*)malloc((length + 1) * sizeof(char));
-    if(str == NULL)
-    	return(NULL);
-    str[length] = '\0';
-    while(length--)
+		length++;
+	}
+	str = (char*) malloc ((length + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	str[length] = '\0';
+	while (length--)
 	{
-        str[length] = '0' + (num % 10);
-        num /= 10;
-    }
-    return(str);
+		str[length] = '0' + (num % 10);
+		num /= 10;
+	}
+	return (str);
 }
 
-int base_sixteen(int num, char *base, int len)
+int	base_sixteen(int num, char *base, int len)
 {
 	int	x;
 	int	i_pow;
 	int	n;
-	
+
 	i_pow = i_power(num);
 	n = ivalue(i_pow);
 	while(i_pow > 0)
