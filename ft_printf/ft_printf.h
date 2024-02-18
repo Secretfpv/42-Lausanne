@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 10:55:44 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 10:56:33 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 16:05:26 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 16:05:26 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include <stdio.h> // dont forget to remove
-//# include "/home/michal/Lausanne_42/libft/libft.h"
+//# include <stdio.h> // dont forget to remove
 # include "libft/libft.h"
 # include <limits.h>
 
@@ -31,7 +30,6 @@ int unsint(unsigned int number, int len);
 char* ft_utoa(unsigned int num);
 int base_sixteen(int num, char *base, int len);
 int base_sixteenlong(unsigned int num, char *base, int len);
-
 int	i_power2(unsigned int num);
 int	ivalue2(int i);
 

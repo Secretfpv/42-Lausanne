@@ -3,37 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 17:00:39 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/15 17:00:39 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 16:06:53 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 16:07:04 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-//int	ft_strlen(const char *str)
-//{
-//	int	i;
-
-//	i = 0;
-//	while (str[i] != '\0')
-//		i++;
-//	return (i);
-//}
 
 int	ivalue(int i)
 {
 	int n;
 
 	n = 1;
-	//printf("\n old i %d ", i);
 	while (i >= 1)
 	{
 		n = n * 16;
 		i--;
 	}
-	//printf ("\n N Value: %d\n", n);
 	return (n);
 }
 
@@ -44,15 +32,11 @@ int	i_power(int num)
 
 	i = 0;
 	num_copy = num;
-	//printf("\n --num--> %d <--num-- ", num_copy);
 	while (num_copy >= 16)
 	{
-		//printf("\n --num--> %d <--num-- ", num_copy);
 		num_copy = num_copy / 16;
 		i++;
-		//printf("\n --num--> %d <--num-- ", num_copy);
 	}
-	//printf("\n I Value: %d", i);
 	return (i);
 }
 
@@ -63,10 +47,7 @@ int buffer_move(char* buffer, int len)
 	int copy;
 
 	j = 0;
-	//i = ft_strlen(buffer);
 	i = 2;
-	//printf("\nold buffer: %s\n", buffer);
-
 	while(buffer[j] == '0')
 	{
 		j++;
@@ -88,35 +69,25 @@ int buffer_move(char* buffer, int len)
       }
     }
 	i = ft_strlen(buffer);
-	
 	buffer[0] = '0';
 	buffer[1] = 'x';
 	write(1, buffer, i);
-	//printf("This is my new buffer: %s\n", buffer);
 	len = len + i;
-	//printf("\n This is len: %d\n", len);
 	return(len);
 }
 
 int string_write(va_list args, int len)
 {
-	//char *currentArg;
 	char *string = va_arg(args, char *);
-
-	//printf("%s", string);
 	
 	if(string == NULL) {
 		ft_putstr_fd("(null)", 1);
-		//printf("(null)");
 		len = len + 6;
 	}
-
 	else if(ft_strncmp(string, "", 1) == 0)
 		ft_putstr_fd("", 1);
-		//printf("");
 	else if(ft_strncmp(string, "", 1) != 0) {
 		ft_putstr_fd(string, 1);
-		//printf("%s", string);
 		len = len + ft_strlen(string);
 	}
 	return (len);
@@ -127,16 +98,15 @@ int unsint(unsigned int number, int len)
     char *num2;
 
     if (number > INT_MAX) {
-        num2 = ft_utoa(number); // Assuming ft_utoa() converts unsigned int to string
+        num2 = ft_utoa(number);
         len += ft_strlen(num2);
-        ft_putstr_fd(num2, 1); // Assuming ft_putstr_fd() writes a string to file descriptor 1 (stdout)
+        ft_putstr_fd(num2, 1);
         free(num2);
     } else {
-        num2 = ft_itoa((int)number); // Assuming ft_itoa() converts int to string
+        num2 = ft_itoa((int)number);
         len += ft_strlen(num2);
         ft_putstr_fd(num2, 1);
         free(num2);
     }
-
     return len;
 }

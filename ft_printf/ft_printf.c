@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 15:47:33 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 16:02:03 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 16:05:38 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 16:05:38 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 int decimal(int number, int len)
 {
@@ -21,10 +20,8 @@ int decimal(int number, int len)
 	len = len + ft_strlen(num);
 	ft_putnbr_fd(number, 1);
 	free(num);
-	//printf("This is my number: %d\nAnd this is my len: %d", number, len);
 	return(len);
 }
-
 
 int Address(void *ptr, int len)
 {
@@ -52,13 +49,6 @@ int Address(void *ptr, int len)
     }
 	
 	len = buffer_move(buffer, len);
-	//printf("\n This is len: %d\n", len);
-	//printf("%s\n", buffer);
-
-	//buffer[0] = '0';
-	//buffer[1] = 'x';
-
-    //write(1, buffer, 16);
 	return (len);
 	}
 }
@@ -67,30 +57,12 @@ int	base(int num, char *base, int len)
 {
 	unsigned int x;
 
-	/*if(num == INT_MIN)
-	{
-		ft_putstr_fd("80000000", 1);
-		return(8);
-	}*/
-
-
-
 	if(num >= 0)
 		len = base_sixteen(num, base, len);
 	
 	if(num < 0)
 	{
-		//printf("hellooooo");
-//		printf("\nInt max: %d", INT_MAX);
-//		printf("\nU max:   %u", INT_MAX);
-//		printf("\nMy num:  %u", num);
-//		printf("\nL Max:   %ld", LONG_MAX);
-
-
 		x = (unsigned int)num;
-
-		//printf("\nThis is my new num: %d", x);
-		//ft_putnbr_fd(x, 1);
 		len = base_sixteenlong(x, base, len);
 	}
 	return (len);
@@ -101,10 +73,7 @@ int	replace(char c, va_list args, int len)
 	if(c == 'd' || c == 'i')
 		len = decimal(va_arg(args, int), len);
 	else if (c == 's')
-	{
 		len = string_write(args, len);
-		//ft_putstr_fd(va_arg(args, char *), 1);
-	}
 	else if (c == 'c')
 	{
 		ft_putchar_fd(va_arg(args, int), 1);
@@ -113,7 +82,7 @@ int	replace(char c, va_list args, int len)
 	else if (c == 'p')
 		len = Address(va_arg(args, void *), len);
 	else if (c == 'u')
-		len = unsint(va_arg(args, /*unsigned*/ int), len);// ft_putnbr_fd(va_arg(args, unsigned int), 1);
+		len = unsint(va_arg(args, int), len);
 	else if (c == '%')
 	{
 		ft_putchar_fd('%', 1);
@@ -131,9 +100,6 @@ int	replace(char c, va_list args, int len)
 
 int	ft_printf(const char *sign, ...)
 {
-//	printf("\033[0m");
-
-
 	va_list args;
 	int i;
 	int len;
@@ -156,17 +122,9 @@ int	ft_printf(const char *sign, ...)
 			len++;
 		}
 	}
-	//len = ft_strlen(sign);
-
-//	ft_putnbr_fd(len, 1);
-//	printf("\n\nLen of string: %d", len);
-
 	va_end(args);
-
 	return(len);
 }
-
-
 
 /*int main()
 {

@@ -3,36 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 15:42:40 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 15:45:00 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 16:08:27 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 16:08:27 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 char* ft_utoa(unsigned int num) {
-    // Determine the length of the number
     unsigned int temp = num;
     int length = 1;
     while (temp /= 10) {
         length++;
     }
-
-    // Allocate memory for the string (including null terminator)
     char* str = (char*)malloc((length + 1) * sizeof(char));
     if (str == NULL) {
-        return NULL; // Memory allocation failed
+        return NULL;
     }
-
-    // Convert the number to string from right to left
-    str[length] = '\0'; // Null-terminate the string
+    str[length] = '\0';
     while (length--) {
-        str[length] = '0' + (num % 10); // Convert digit to character
+        str[length] = '0' + (num % 10);
         num /= 10;
     }
-
     return str;
 }
 
@@ -43,14 +37,10 @@ int base_sixteen(int num, char *base, int len)
 	int n;
 	
 	i_pow = i_power(num);
-	//printf("\nThis is i_pow: %d", i_pow);
 	n = ivalue(i_pow);
 	while(i_pow > 0)
 	{
 		x = 0;
-//		printf("\nThis is n: %d", n);
-//		printf("\nThis is my num: %d", num);
-//		printf("\nThis is i_pow: %d", i_pow);
 		if(num >= n)
 		{
 			while(num >= n)
@@ -59,14 +49,9 @@ int base_sixteen(int num, char *base, int len)
 				x++;
 			}
 			i_pow--;
-//			printf("\nThis is i_pow: %d", i_pow);
 			n = ivalue(i_pow);
-//			printf("\nThis is i: %d", n);
-
 			ft_putchar_fd(base[x], 1);
 			len++;
-//			printf("\nI can put %d times %d.", x, n);
-//			printf("\nI have stil %d left.", num);
 		}
 		if(num < n && i_pow > 0)
 		{
@@ -85,30 +70,14 @@ int base_sixteen(int num, char *base, int len)
 int base_sixteenlong(unsigned int num, char *base, int len)
 {
 	int x;
-	//unsigned long int f;
 	unsigned int i_pow;
 	unsigned int n;
 
-	//f = UINT_MAX + num + 1;
-	//num = num * -1;
-	//num = num + 268435455 + 1;
-	
-	
-	//ft_putchar_fd(base[15], 1);
-	//len++;
-	//ft_putnbr_fd((unsigned int) num, 1);
-
-	//printf("\nThis is num: %u", num);
 	i_pow = i_power2((unsigned int)num);
-	//printf("\nThis is i_pow: %d", i_pow);
 	n = ivalue2(i_pow);
-	//printf("\nThis is i_pow: %d", i_pow);
 	while(i_pow > 0)
 	{
 		x = 0;
-		//printf("\nThis is n: %d", n);
-//		printf("\nThis is my num: %d", num);
-//		printf("\nThis is i_pow: %d", i_pow);
 		if(num >= n)
 		{
 			while(num >= n)
@@ -117,14 +86,9 @@ int base_sixteenlong(unsigned int num, char *base, int len)
 				x++;
 			}
 			i_pow--;
-//			printf("\nThis is i_pow: %d", i_pow);
 			n = ivalue(i_pow);
-			//printf("\nThis is numbeer: %d", num);
-
 			ft_putchar_fd(base[x], 1);
 			len++;
-//			printf("\nI can put %d times %d.", x, n);
-//			printf("\nI have stil %d left.", num);
 		}
 		if(num < n && i_pow > 0)
 		{
@@ -134,7 +98,6 @@ int base_sixteenlong(unsigned int num, char *base, int len)
 		}
 
 	}
-	//printf("This is num final: %d", num);
 	if(num < (unsigned int)ft_strlen(base))
 		ft_putchar_fd(base[num], 1);
 	len++;
@@ -146,18 +109,13 @@ int	i_power2(unsigned int num)
 	int i;
 	unsigned int num_copy;
 
-	//printf("\nThis is num in pow2: %d", num);
 	i = 0;
 	num_copy = num;
-	//printf("\n --num--> %d <--num-- ", num_copy);
 	while (num_copy >= 16)
 	{
-		//printf("\n --num--> %d <--num-- ", num_copy);
 		num_copy = num_copy / 16;
 		i++;
-		//printf("\n --num--> %d <--num-- ", num_copy);
 	}
-	//printf("\n I Value: %d", i);
 	return (i);
 }
 
@@ -166,12 +124,10 @@ int	ivalue2(int i)
 	int n;
 
 	n = 1;
-	//printf("\n old i %d ", i);
 	while (i >= 1)
 	{
 		n = n * 16;
 		i--;
 	}
-	//printf ("\n N Value: %d\n", n);
 	return (n);
 }
