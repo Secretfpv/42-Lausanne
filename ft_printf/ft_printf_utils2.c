@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 15:42:40 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 15:42:40 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/18 15:45:00 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ int base_sixteen(int num, char *base, int len)
 		}
 
 	}
-	ft_putchar_fd(base[num], 1);
+	if(num < ft_strlen(base))
+		ft_putchar_fd(base[num], 1);
 	len++;
 	return(len);
 }
