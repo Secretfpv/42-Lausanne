@@ -5,36 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 16:08:27 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 16:08:27 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 16:19:57 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 16:21:19 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char* ft_utoa(unsigned int num) {
-    unsigned int temp = num;
-    int length = 1;
-    while (temp /= 10) {
+char	*ft_utoa(unsigned int num)
+{
+    unsigned int	temp = num;
+    int 			length;
+
+	length = 1;
+    while(temp /= 10) {
         length++;
     }
-    char* str = (char*)malloc((length + 1) * sizeof(char));
-    if (str == NULL) {
-        return NULL;
-    }
+    char *str = (char*)malloc((length + 1) * sizeof(char));
+    if(str == NULL)
+    	return(NULL);
     str[length] = '\0';
-    while (length--) {
+    while(length--)
+	{
         str[length] = '0' + (num % 10);
         num /= 10;
     }
-    return str;
+    return(str);
 }
 
 int base_sixteen(int num, char *base, int len)
 {
-	int x;
-	int i_pow;
-	int n;
+	int	x;
+	int	i_pow;
+	int	n;
 	
 	i_pow = i_power(num);
 	n = ivalue(i_pow);
@@ -69,9 +72,9 @@ int base_sixteen(int num, char *base, int len)
 
 int base_sixteenlong(unsigned int num, char *base, int len)
 {
-	int x;
-	unsigned int i_pow;
-	unsigned int n;
+	int				x;
+	unsigned int	i_pow;
+	unsigned int	n;
 
 	i_pow = i_power2((unsigned int)num);
 	n = ivalue2(i_pow);
@@ -106,28 +109,28 @@ int base_sixteenlong(unsigned int num, char *base, int len)
 
 int	i_power2(unsigned int num)
 {
-	int i;
-	unsigned int num_copy;
+	int				i;
+	unsigned int	num_copy;
 
 	i = 0;
 	num_copy = num;
-	while (num_copy >= 16)
+	while(num_copy >= 16)
 	{
 		num_copy = num_copy / 16;
 		i++;
 	}
-	return (i);
+	return(i);
 }
 
 int	ivalue2(int i)
 {
-	int n;
+	int	n;
 
 	n = 1;
-	while (i >= 1)
+	while(i >= 1)
 	{
 		n = n * 16;
 		i--;
 	}
-	return (n);
+	return(n);
 }
