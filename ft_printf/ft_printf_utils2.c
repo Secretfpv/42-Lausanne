@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:19:57 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 16:21:19 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/18 17:09:07 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 char	*ft_utoa(unsigned int num)
 {
-    unsigned int	temp = num;
-    int 			length;
+    unsigned int	temp;
+    int				length;
 
+	temp = num;
 	length = 1;
     while(temp /= 10) {
         length++;
