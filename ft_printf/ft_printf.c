@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 15:40:51 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 15:41:03 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 15:47:33 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 16:02:03 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,10 +172,18 @@ int	ft_printf(const char *sign, ...)
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("%x", 16));
+	printf("\nNumber of chars: %d\n", ft_printf("8$rv%icfi%ulT\n+K)M%u/ws%pVr:@g%i\n\vI%i#pB.v\Jg<`%x`~m3#s%sb1r&l'*yg%pqlj[jv ",
+884440607, -1200258109, 1999641884, (void *)6335553429087845953, 495387416, -1591732976,
+-1593496168,
+"Y6%9AfQuc}1kx;9n(t4[&U>.TR\fk{Hw{x/\f\"R\tGak%1!0b-{0E-_y]mzzgj9WfuoUCKz?`;=2|KESz`+vh\\",
+(void *)-8512464386657100969));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("%x", 16));
+	printf("\nNumber of chars: %d\n", printf("8$rv%icfi%ulT\n+K)M%u/ws%pVr:@g%i\n\vI%i#pB.v\Jg<`%x`~m3#s%sb1r&l'*yg%pqlj[jv ",
+884440607, -1200258109, 1999641884, (void *)6335553429087845953, 495387416, -1591732976,
+-1593496168,
+"Y6%9AfQuc}1kx;9n(t4[&U>.TR\fk{Hw{x/\f\"R\tGak%1!0b-{0E-_y]mzzgj9WfuoUCKz?`;=2|KESz`+vh\\",
+(void *)-8512464386657100969));
 }*/
 
 // gcc -g ft_printf.c ft_printf_utils.c ft_printf_utils2.c -Ilibft -Llibft -lft
