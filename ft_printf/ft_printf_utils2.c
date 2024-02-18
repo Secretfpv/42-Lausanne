@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 13:51:21 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 13:51:52 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 15:40:24 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 15:40:27 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,9 @@ int base_sixteenlong(unsigned int num, char *base, int len)
 		}
 
 	}
-	ft_putchar_fd(base[num], 1);
+	//printf("This is num final: %d", num);
+	if(num < ft_strlen(base))
+		ft_putchar_fd(base[num], 1);
 	len++;
 	return(len);
 }

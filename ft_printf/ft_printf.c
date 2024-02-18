@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 13:53:12 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 13:53:12 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 15:40:51 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 15:41:03 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,10 +172,10 @@ int	ft_printf(const char *sign, ...)
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("%x", -1));
+	printf("\nNumber of chars: %d\n", ft_printf("%x", 16));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("%x", -1));
+	printf("\nNumber of chars: %d\n", printf("%x", 16));
 }*/
 
 // gcc -g ft_printf.c ft_printf_utils.c ft_printf_utils2.c -Ilibft -Llibft -lft
