@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 16:06:53 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 16:07:04 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 16:14:16 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 16:14:19 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ivalue(int i)
 {
-	int n;
+	int	n;
 
 	n = 1;
 	while (i >= 1)
@@ -27,8 +27,8 @@ int	ivalue(int i)
 
 int	i_power(int num)
 {
-	int i;
-	int num_copy;
+	int	i;
+	int	num_copy;
 
 	i = 0;
 	num_copy = num;
@@ -42,9 +42,9 @@ int	i_power(int num)
 
 int buffer_move(char* buffer, int len)
 {
-	int i;
-	int j;
-	int copy;
+	int	i;
+	int	j;
+	int	copy;
 
 	j = 0;
 	i = 2;
@@ -78,7 +78,7 @@ int buffer_move(char* buffer, int len)
 
 int string_write(va_list args, int len)
 {
-	char *string = va_arg(args, char *);
+	char	*string = va_arg(args, char *);
 	
 	if(string == NULL) {
 		ft_putstr_fd("(null)", 1);
@@ -90,12 +90,12 @@ int string_write(va_list args, int len)
 		ft_putstr_fd(string, 1);
 		len = len + ft_strlen(string);
 	}
-	return (len);
+	return(len);
 }
 
 int unsint(unsigned int number, int len)
 {
-    char *num2;
+    char	*num2;
 
     if (number > INT_MAX) {
         num2 = ft_utoa(number);
@@ -108,5 +108,5 @@ int unsint(unsigned int number, int len)
         ft_putstr_fd(num2, 1);
         free(num2);
     }
-    return len;
+    return(len);
 }

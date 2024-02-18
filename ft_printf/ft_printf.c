@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 16:05:38 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 16:05:38 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 16:11:41 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 16:13:29 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int decimal(int number, int len)
 {
-	char *num;
+	char	*num;
 
 	num = ft_itoa(number);
 	len = len + ft_strlen(num);
@@ -25,13 +25,14 @@ int decimal(int number, int len)
 
 int Address(void *ptr, int len)
 {
-    const char hexChars[] = "0123456789abcdef";
-    char buffer[25];
-    buffer[24] = '\0';
-	int i;
+    const char	hexChars[] = "0123456789abcdef";
+    char		buffer[25];
+	int	i;
 
+	buffer[24] = '\0';
 	i = 23;
-	while(i >= 0) {
+	while(i >= 0)
+	{
 		buffer[i] = '0';
 		i--;
 	}
@@ -41,21 +42,19 @@ int Address(void *ptr, int len)
 	}
 	else {
     unsigned long long address = (unsigned long long)ptr;
-
 	for (i = 23; i >= 0; i--)
 	{
         buffer[i] = hexChars[address % 16];
         address /= 16;
     }
-	
 	len = buffer_move(buffer, len);
-	return (len);
+	return(len);
 	}
 }
 
 int	base(int num, char *base, int len)
 {
-	unsigned int x;
+	unsigned int	x;
 
 	if(num >= 0)
 		len = base_sixteen(num, base, len);
@@ -65,7 +64,7 @@ int	base(int num, char *base, int len)
 		x = (unsigned int)num;
 		len = base_sixteenlong(x, base, len);
 	}
-	return (len);
+	return(len);
 }
 
 int	replace(char c, va_list args, int len)

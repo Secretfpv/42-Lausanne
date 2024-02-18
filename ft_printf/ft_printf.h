@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 16:05:26 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 16:05:26 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 16:14:05 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 16:14:09 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int	ft_printf(const char *, ...);
 int	ft_strlen(const char *str);
 int	ivalue(int i);
 int	i_power(int num);
-int buffer_move(char* buffer, int len);
-int string_write(va_list args, int len);
-int unsint(unsigned int number, int len);
-char* ft_utoa(unsigned int num);
-int base_sixteen(int num, char *base, int len);
-int base_sixteenlong(unsigned int num, char *base, int len);
+int	buffer_move(char* buffer, int len);
+int	string_write(va_list args, int len);
+int	unsint(unsigned int number, int len);
+char	*ft_utoa(unsigned int num);
+int	base_sixteen(int num, char *base, int len);
+int	base_sixteenlong(unsigned int num, char *base, int len);
 int	i_power2(unsigned int num);
 int	ivalue2(int i);
 
