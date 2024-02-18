@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 17:21:28 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/16 17:21:28 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 13:51:21 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 13:51:52 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,31 +81,31 @@ int base_sixteen(int num, char *base, int len)
 	return(len);
 }
 
-int base_sixteenlong(unsigned long int num, char *base, int len)
+int base_sixteenlong(unsigned int num, char *base, int len)
 {
-	{
 	int x;
 	//unsigned long int f;
 	unsigned int i_pow;
-	unsigned long int n;
+	unsigned int n;
 
 	//f = UINT_MAX + num + 1;
 	//num = num * -1;
-	num = num + 268435455 + 1;
+	//num = num + 268435455 + 1;
 	
 	
-	ft_putchar_fd(base[15], 1);
-	len++;
+	//ft_putchar_fd(base[15], 1);
+	//len++;
+	//ft_putnbr_fd((unsigned int) num, 1);
 
-
-//	printf("i am here: %ld", num);
-	i_pow = i_power(num);
+	//printf("\nThis is num: %u", num);
+	i_pow = i_power2((unsigned int)num);
 	//printf("\nThis is i_pow: %d", i_pow);
-	n = ivalue(i_pow);
+	n = ivalue2(i_pow);
+	//printf("\nThis is i_pow: %d", i_pow);
 	while(i_pow > 0)
 	{
 		x = 0;
-//		printf("\nThis is n: %d", n);
+		//printf("\nThis is n: %d", n);
 //		printf("\nThis is my num: %d", num);
 //		printf("\nThis is i_pow: %d", i_pow);
 		if(num >= n)
@@ -118,7 +118,7 @@ int base_sixteenlong(unsigned long int num, char *base, int len)
 			i_pow--;
 //			printf("\nThis is i_pow: %d", i_pow);
 			n = ivalue(i_pow);
-//			printf("\nThis is i: %d", n);
+			//printf("\nThis is numbeer: %d", num);
 
 			ft_putchar_fd(base[x], 1);
 			len++;
@@ -137,4 +137,38 @@ int base_sixteenlong(unsigned long int num, char *base, int len)
 	len++;
 	return(len);
 }
+
+int	i_power2(unsigned int num)
+{
+	int i;
+	unsigned int num_copy;
+
+	//printf("\nThis is num in pow2: %d", num);
+	i = 0;
+	num_copy = num;
+	//printf("\n --num--> %d <--num-- ", num_copy);
+	while (num_copy >= 16)
+	{
+		//printf("\n --num--> %d <--num-- ", num_copy);
+		num_copy = num_copy / 16;
+		i++;
+		//printf("\n --num--> %d <--num-- ", num_copy);
+	}
+	//printf("\n I Value: %d", i);
+	return (i);
+}
+
+int	ivalue2(int i)
+{
+	int n;
+
+	n = 1;
+	//printf("\n old i %d ", i);
+	while (i >= 1)
+	{
+		n = n * 16;
+		i--;
+	}
+	//printf ("\n N Value: %d\n", n);
+	return (n);
 }

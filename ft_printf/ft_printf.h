@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 15:53:51 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/16 15:53:51 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 10:55:44 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 10:56:33 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int string_write(va_list args, int len);
 int unsint(unsigned int number, int len);
 char* ft_utoa(unsigned int num);
 int base_sixteen(int num, char *base, int len);
-int base_sixteenlong(unsigned long int num, char *base, int len);
+int base_sixteenlong(unsigned int num, char *base, int len);
+
+int	i_power2(unsigned int num);
+int	ivalue2(int i);
 
 #endif

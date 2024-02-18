@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 17:24:43 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/16 17:26:49 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/18 13:51:13 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/18 13:51:13 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,13 @@ int Address(void *ptr, int len)
 
 int	base(int num, char *base, int len)
 {
-	//unsigned long int x;
+	unsigned int x;
 
-	if(num == INT_MIN)
+	/*if(num == INT_MIN)
 	{
 		ft_putstr_fd("80000000", 1);
 		return(8);
-	}
+	}*/
 
 
 
@@ -87,10 +87,11 @@ int	base(int num, char *base, int len)
 //		printf("\nL Max:   %ld", LONG_MAX);
 
 
-//		x = UINT_MAX + num + 1;
+		x = (unsigned int)num;
 
-		//printf("\nThis is my new num: %d", num);	
-		len = base_sixteenlong(num, base, len);
+		//printf("\nThis is my new num: %d", x);
+		//ft_putnbr_fd(x, 1);
+		len = base_sixteenlong(x, base, len);
 	}
 	return (len);
 }
@@ -167,15 +168,15 @@ int	ft_printf(const char *sign, ...)
 
 
 
-/*int main()
+int main()
 {
 	printf("My Tests:\n");
 	//printf("\nNumber of chars: %d\n", ft_printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", ft_printf("%x", -10));
+	printf("\nNumber of chars: %d\n", ft_printf("%x", -1));
 	printf("\n-------------\n\nShould get:\n");
 	//printf("\nNumber of chars: %d\n", printf("%s%s%s", "And ", "some", "joined"));
-	printf("\nNumber of chars: %d\n", printf("%x", -10));
-}*/
+	printf("\nNumber of chars: %d\n", printf("%x", -1));
+}
 
 // gcc -g ft_printf.c ft_printf_utils.c ft_printf_utils2.c -Ilibft -Llibft -lft
 // !!!! Make clean and Make every time
