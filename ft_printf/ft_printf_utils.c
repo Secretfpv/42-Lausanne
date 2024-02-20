@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 16:14:16 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 16:14:19 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/20 08:07:38 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/20 08:15:00 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	i_power(int num)
 	return (i);
 }
 
-int buffer_move(char* buffer, int len)
+int	buffer_move(char *buffer, int len)
 {
 	int	i;
 	int	j;
@@ -48,65 +48,71 @@ int buffer_move(char* buffer, int len)
 
 	j = 0;
 	i = 2;
-	while(buffer[j] == '0')
+	while (buffer[j] == '0')
 	{
 		j++;
 	}
 	copy = j;
-	while(buffer[j] != '\0')
+	while (buffer[j] != '\0')
 	{
 		buffer[i] = buffer[j];
 		buffer[j] = '\0';
 		i++;
 		j++;
 	}
-	if(buffer[j] == '\0')
-    {
-      while(buffer[i] != '\0')
-      {
-        buffer[i] = '\0';
-        i++;
-      }
-    }
+	if (buffer[j] == '\0')
+	{
+		while (buffer[i] != '\0')
+		{
+			buffer[i] = '\0';
+			i++;
+		}
+	}
 	i = ft_strlen(buffer);
 	buffer[0] = '0';
 	buffer[1] = 'x';
 	write(1, buffer, i);
 	len = len + i;
-	return(len);
+	return (len);
 }
 
-int string_write(va_list args, int len)
+int	string_write(va_list args, int len)
 {
-	char	*string = va_arg(args, char *);
-	
-	if(string == NULL) {
+	char	*string;
+
+	string = va_arg(args, char *);
+	if (string == NULL)
+	{
 		ft_putstr_fd("(null)", 1);
 		len = len + 6;
 	}
-	else if(ft_strncmp(string, "", 1) == 0)
+	else if (ft_strncmp(string, "", 1) == 0)
 		ft_putstr_fd("", 1);
-	else if(ft_strncmp(string, "", 1) != 0) {
+	else if (ft_strncmp(string, "", 1) != 0)
+	{
 		ft_putstr_fd(string, 1);
 		len = len + ft_strlen(string);
 	}
-	return(len);
+	return (len);
 }
 
-int unsint(unsigned int number, int len)
+int	unsint(unsigned int number, int len)
 {
-    char	*num2;
+	char	*num2;
 
-    if (number > INT_MAX) {
-        num2 = ft_utoa(number);
-        len += ft_strlen(num2);
-        ft_putstr_fd(num2, 1);
-        free(num2);
-    } else {
-        num2 = ft_itoa((int)number);
-        len += ft_strlen(num2);
-        ft_putstr_fd(num2, 1);
-        free(num2);
-    }
-    return(len);
+	if (number > INT_MAX)
+	{
+		num2 = ft_utoa(number);
+		len += ft_strlen(num2);
+		ft_putstr_fd(num2, 1);
+		free(num2);
+	}
+	else
+	{
+		num2 = ft_itoa((int)number);
+		len += ft_strlen(num2);
+		ft_putstr_fd(num2, 1);
+		free(num2);
+	}
+	return (len);
 }

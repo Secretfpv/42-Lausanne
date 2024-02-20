@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:19:57 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/18 20:35:33 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/20 08:07:12 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ int	base_sixteen(int num, char *base, int len)
 
 	i_pow = i_power(num);
 	n = ivalue(i_pow);
-	while(i_pow > 0)
+	while (i_pow > 0)
 	{
 		x = 0;
-		if(num >= n)
+		if (num >= n)
 		{
-			while(num >= n)
+			while (num >= n)
 			{
 				num = num - n;
 				x++;
@@ -59,21 +59,20 @@ int	base_sixteen(int num, char *base, int len)
 			ft_putchar_fd(base[x], 1);
 			len++;
 		}
-		if(num < n && i_pow > 0)
+		if (num < n && i_pow > 0)
 		{
 			ft_putchar_fd(base[0], 1);
 			len++;
 			i_pow--;
 		}
-
 	}
-	if(num < ft_strlen(base))
+	if (num < ft_strlen(base))
 		ft_putchar_fd(base[num], 1);
 	len++;
-	return(len);
+	return (len);
 }
 
-int base_sixteenlong(unsigned int num, char *base, int len)
+int	base_sixteenlong(unsigned int num, char *base, int len)
 {
 	int				x;
 	unsigned int	i_pow;
@@ -81,12 +80,12 @@ int base_sixteenlong(unsigned int num, char *base, int len)
 
 	i_pow = i_power2((unsigned int)num);
 	n = ivalue2(i_pow);
-	while(i_pow > 0)
+	while (i_pow > 0)
 	{
 		x = 0;
-		if(num >= n)
+		if (num >= n)
 		{
-			while(num >= n)
+			while (num >= n)
 			{
 				num = num - n;
 				x++;
@@ -96,18 +95,17 @@ int base_sixteenlong(unsigned int num, char *base, int len)
 			ft_putchar_fd(base[x], 1);
 			len++;
 		}
-		if(num < n && i_pow > 0)
+		if (num < n && i_pow > 0)
 		{
 			ft_putchar_fd(base[0], 1);
 			len++;
 			i_pow--;
 		}
-
 	}
-	if(num < (unsigned int)ft_strlen(base))
+	if (num < (unsigned int)ft_strlen(base))
 		ft_putchar_fd(base[num], 1);
 	len++;
-	return(len);
+	return (len);
 }
 
 int	i_power2(unsigned int num)
@@ -117,12 +115,12 @@ int	i_power2(unsigned int num)
 
 	i = 0;
 	num_copy = num;
-	while(num_copy >= 16)
+	while (num_copy >= 16)
 	{
 		num_copy = num_copy / 16;
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
 int	ivalue2(int i)
@@ -130,10 +128,10 @@ int	ivalue2(int i)
 	int	n;
 
 	n = 1;
-	while(i >= 1)
+	while (i >= 1)
 	{
 		n = n * 16;
 		i--;
 	}
-	return(n);
+	return (n);
 }
