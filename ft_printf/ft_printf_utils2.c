@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 16:19:57 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/20 08:07:12 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/21 17:17:51 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/21 17:22:20 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ char	*ft_utoa(unsigned int num)
 
 	temp = num;
 	length = 1;
-	while (temp /= 10)
+	while (temp > 0)
 	{
+		temp /= 10;
 		length++;
 	}
-	str = (char*) malloc ((length + 1) * sizeof(char));
+	str = (char *) malloc ((length + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	str[length] = '\0';
@@ -38,33 +39,12 @@ char	*ft_utoa(unsigned int num)
 
 int	base_sixteen(int num, char *base, int len)
 {
-	int	x;
 	int	i_pow;
-	int	n;
 
 	i_pow = i_power(num);
-	n = ivalue(i_pow);
 	while (i_pow > 0)
 	{
-		x = 0;
-		if (num >= n)
-		{
-			while (num >= n)
-			{
-				num = num - n;
-				x++;
-			}
-			i_pow--;
-			n = ivalue(i_pow);
-			ft_putchar_fd(base[x], 1);
-			len++;
-		}
-		if (num < n && i_pow > 0)
-		{
-			ft_putchar_fd(base[0], 1);
-			len++;
-			i_pow--;
-		}
+		len = f_too_long(num, base, len, i_pow);
 	}
 	if (num < ft_strlen(base))
 		ft_putchar_fd(base[num], 1);
@@ -82,25 +62,7 @@ int	base_sixteenlong(unsigned int num, char *base, int len)
 	n = ivalue2(i_pow);
 	while (i_pow > 0)
 	{
-		x = 0;
-		if (num >= n)
-		{
-			while (num >= n)
-			{
-				num = num - n;
-				x++;
-			}
-			i_pow--;
-			n = ivalue(i_pow);
-			ft_putchar_fd(base[x], 1);
-			len++;
-		}
-		if (num < n && i_pow > 0)
-		{
-			ft_putchar_fd(base[0], 1);
-			len++;
-			i_pow--;
-		}
+		len = f_too_long_u(num, base, len, i_pow);
 	}
 	if (num < (unsigned int)ft_strlen(base))
 		ft_putchar_fd(base[num], 1);

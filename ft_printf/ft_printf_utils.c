@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 08:07:38 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/20 08:15:00 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/21 17:05:26 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/21 17:05:47 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	buffer_move(char *buffer, int len)
 {
 	int	i;
 	int	j;
-	int	copy;
 
 	j = 0;
 	i = 2;
@@ -52,7 +51,6 @@ int	buffer_move(char *buffer, int len)
 	{
 		j++;
 	}
-	copy = j;
 	while (buffer[j] != '\0')
 	{
 		buffer[i] = buffer[j];
