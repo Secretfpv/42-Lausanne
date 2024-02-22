@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 16:47:08 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/22 16:47:08 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/22 17:25:17 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/22 17:25:17 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
