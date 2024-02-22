@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 17:16:49 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/21 17:16:54 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/22 16:46:39 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/22 16:46:48 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int		i_power2(unsigned int num);
 int		ivalue2(int i);
 int		f_too_long(int num, char *base, int len, int i_pow);
 int		f_too_long_u(unsigned int num, char *base, int len, unsigned int i_pow);
+int		need_lines(char *buffer, int len);
 
 #endif

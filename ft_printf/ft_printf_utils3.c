@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 17:17:05 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/21 17:17:05 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/22 16:46:51 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/22 16:46:56 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,16 @@ int	f_too_long_u(unsigned int num, char *base, int len, unsigned int i_pow)
 		len++;
 		i_pow--;
 	}
+}
+
+int	need_lines(char *buffer, int len)
+{
+	int	i;
+
+	i = ft_strlen(buffer);
+	buffer[0] = '0';
+	buffer[1] = 'x';
+	write(1, buffer, i);
+	len = len + i;
+	return (len);
 }
