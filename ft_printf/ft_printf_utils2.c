@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 16:52:47 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/22 16:52:47 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/22 17:01:34 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/22 17:01:34 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_utoa(unsigned int num)
 
 	temp = num;
 	length = 1;
-	while (temp > 0)
+	while (temp >= 0)
 	{
 		temp /= 10;
 		length++;
