@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 17:17:51 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/21 17:22:20 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/22 16:52:47 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/22 16:52:47 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	base_sixteen(int num, char *base, int len)
 
 int	base_sixteenlong(unsigned int num, char *base, int len)
 {
-	int				x;
 	unsigned int	i_pow;
 	unsigned int	n;
 
