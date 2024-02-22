@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils3.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwikiera <mwikiera@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 16:46:51 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/22 16:46:56 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/22 16:53:48 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/22 16:54:46 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	f_too_long_u(unsigned int num, char *base, int len, unsigned int i_pow)
 	int				x;
 	unsigned int	n;
 
+	n = i_pow;
 	x = 0;
 	if (num >= n)
 	{
@@ -64,6 +65,7 @@ int	f_too_long_u(unsigned int num, char *base, int len, unsigned int i_pow)
 		len++;
 		i_pow--;
 	}
+	return (len);
 }
 
 int	need_lines(char *buffer, int len)
