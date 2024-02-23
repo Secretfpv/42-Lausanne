@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: mwikiera <mwikiera@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 11:37:16 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/23 11:38:02 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/23 15:41:25 by mwikiera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ int	decimal(int number, int len)
 
 int	address(void *ptr, int len)
 {
-	const char			hexchars[] = "0123456789abcdef";
 	char				buffer[25];
 	int					i;
-	unsigned long long	address;
 
 	buffer[24] = '\0';
 	i = 23;
@@ -44,13 +42,7 @@ int	address(void *ptr, int len)
 	}
 	else
 	{
-		address = (unsigned long long)ptr;
-		for (i = 23; i >= 0; i--)
-		{
-			buffer[i] = hexchars[address % 16];
-			address /= 16;
-		}
-		len = buffer_move(buffer, len);
+		len = adress_more(ptr, buffer, len);
 		return (len);
 	}
 }
@@ -121,14 +113,4 @@ int	ft_printf(const char *sign, ...)
 	}
 	va_end(args);
 	return (len);
-}
-int main()
-{
-	printf("My Tests:\n");
-	printf("\nNumber of chars: %d\n", ft_printf("%x", -10));
-	//printf("%u", -10);
-	printf("\n-------------\n\nShould get:\n");
-	printf("\nNumber of chars: %d\n", printf("%x", -10));
-	//printf("%u", -10);
-	printf("\n");
 }

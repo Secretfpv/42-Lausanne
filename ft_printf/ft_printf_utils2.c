@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: mwikiera <mwikiera@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 11:38:34 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/23 11:38:34 by mwikiera         ###   ########.ch       */
+/*   Updated: 2024/02/23 15:29:20 by mwikiera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ int	base_sixteen(int num, char *base, int len)
 	i_pow = i_power(num);
 	while (i_pow > 0)
 	{
-		printf("Iamhere2");
-		//len = f_too_long(num, base, len, i_pow);
+		num = f_hello(num, base, &len, i_pow);
 		i_pow--;
 	}
 	if (num < ft_strlen(base))
@@ -63,8 +62,7 @@ int	base_sixteenlong(unsigned int num, char *base, int len)
 	n = ivalue2(i_pow);
 	while (i_pow > 0)
 	{
-		printf("Iamhere");
-		len = f_too_long_u(num, base, len, i_pow);
+		num = f_hello_u(num, base, &len, i_pow);
 		i_pow--;
 	}
 	if (num < (unsigned int)ft_strlen(base))
