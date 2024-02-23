@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 17:25:28 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/22 17:25:28 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/23 11:37:16 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/23 11:38:02 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,4 +121,14 @@ int	ft_printf(const char *sign, ...)
 	}
 	va_end(args);
 	return (len);
+}
+int main()
+{
+	printf("My Tests:\n");
+	printf("\nNumber of chars: %d\n", ft_printf("%x", -10));
+	//printf("%u", -10);
+	printf("\n-------------\n\nShould get:\n");
+	printf("\nNumber of chars: %d\n", printf("%x", -10));
+	//printf("%u", -10);
+	printf("\n");
 }

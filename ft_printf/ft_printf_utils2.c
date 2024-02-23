@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 17:24:00 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/02/22 17:25:01 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/02/23 11:38:34 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/02/23 11:38:34 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ int	base_sixteen(int num, char *base, int len)
 	i_pow = i_power(num);
 	while (i_pow > 0)
 	{
-		len = f_too_long(num, base, len, i_pow);
+		printf("Iamhere2");
+		//len = f_too_long(num, base, len, i_pow);
+		i_pow--;
 	}
 	if (num < ft_strlen(base))
 		ft_putchar_fd(base[num], 1);
@@ -61,7 +63,9 @@ int	base_sixteenlong(unsigned int num, char *base, int len)
 	n = ivalue2(i_pow);
 	while (i_pow > 0)
 	{
+		printf("Iamhere");
 		len = f_too_long_u(num, base, len, i_pow);
+		i_pow--;
 	}
 	if (num < (unsigned int)ft_strlen(base))
 		ft_putchar_fd(base[num], 1);
