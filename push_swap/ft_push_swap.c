@@ -6,7 +6,7 @@
 /*   By: mwikiera <mwikiera@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:33:52 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/03/01 17:25:07 by mwikiera         ###   ########.fr       */
+/*   Updated: 2024/03/01 17:48:36 by mwikiera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,6 @@ int main(int argc, char *argv[])
 // make clean
 
 // make or make all
+
+
+// https://github.com/mohsink20/42cursus/blob/main/push_swap/mylib/Makefile      makefile to check
