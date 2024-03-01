@@ -1,4 +1,4 @@
-NAME = push_swap.a
+NAME = push_swap
 CC = gcc
 CCFLAGS = -Wall -Werror -Wextra
 RM = rm -f
@@ -13,7 +13,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 		@make -C $(LIBFT_DIR)
 		@cp ${LIBFT_DIR}/libft.a .
-		mv libft.a push_swap.a
+		mv libft.a push_swap
 		ar rcs $(NAME) $(OBJS)
 		@echo "compilation done"
 	
