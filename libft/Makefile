@@ -46,9 +46,15 @@ SRCS_BONUS = ft_lstnew.c \
 			ft_lstiter.c \
 			ft_lstmap.c \
 
+SRCS_PRINTF = ft_printf/ft_printf.c \
+			ft_printf/ft_printf_utils.c \
+			ft_printf/ft_printf_utils2.c \
+			ft_printf/ft_printf_utils3.c
+
 OBJS_BASE = $(SRCS_BASE:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
-OBJS = $(OBJS_BASE)
+OBJS_PRINTF = $(SRCS_PRINTF:.c=.o)
+OBJS = $(OBJS_BASE) $(OBJS_PRINTF)
 
 all: $(NAME)
 
