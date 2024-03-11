@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwikiera <mwikiera@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/01 14:41:22 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/03/01 17:04:52 by mwikiera         ###   ########.fr       */
+/*   Created: 2024/03/09 16:48:47 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/03/09 16:48:47 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,18 @@
 # include <stdio.h> // dont forget to remove
 
 int	main(int argc, char *argv[]);
+void	push_swap(int argc, char *argv[]);
+
+void	swap_a(char **argv[], int stack_a);
+void	swap_b(char **argv[], int stack_a, int argc);
+void	ss(char **argv[], int stack_a, int argc);
+int	push_a(int argc, char **argv[], int stack_a);
+int	push_b(char **argv[], int stack_a);
+void	rotate_a(char **argv[], int stack_a);
+void	rotate_b(int argc, char **argv[], int stack_a);
+void	rr(char **argv[], int stack_a, int argc);
+void	reverse_rotate_a(char **argv[], int stack_a);
+void	reverse_rotate_b(int argc, char **argv[], int stack_a);
+void	rrr(char **argv[], int stack_a, int argc);
 
 #endif
