@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 17:39:49 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/03/11 17:39:49 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/03/16 12:34:59 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/03/16 12:34:59 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,6 @@ void	ss(char **argv[], int stack_a, int argc)
 	char *temp2;
 
 	ft_printf("ss\n");
-	//swap_a(argv, stack_a);
-	//swap_b(argv, stack_a, argc);
-
 	if (stack_a >= 2)
 	{
 		temp1 = (*argv)[1];

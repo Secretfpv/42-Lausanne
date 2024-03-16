@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/09 16:48:47 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/03/09 16:48:47 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/03/15 14:22:07 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/03/15 14:22:26 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdio.h> // dont forget to remove
 
 int	main(int argc, char *argv[]);
-void	push_swap(int argc, char *argv[]);
+int	push_swap(int argc, char *argv[]);
 
 void	swap_a(char **argv[], int stack_a);
 void	swap_b(char **argv[], int stack_a, int argc);
