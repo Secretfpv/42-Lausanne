@@ -58,7 +58,7 @@ void	ss(char **argv[], int stack_a, int argc)
 	}
 }
 
-int	push_a(int argc, char **argv[], int stack_a)
+int	push_a(char **argv[], int stack_a)
 {
 	int		i;
 	char	*temp;

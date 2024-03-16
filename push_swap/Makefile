@@ -4,7 +4,7 @@ CCFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 LIBFT_DIR = libft
 
-SRC_FILES = $(addprefix ft_, $(addsuffix .c, push_swap))
+SRC_FILES = $(addprefix ft_, $(addsuffix .c, push_swap push_swap_functions push_swap_functions2))
 
 OBJS := $(SRC_FILES:%.c=%.o)
 

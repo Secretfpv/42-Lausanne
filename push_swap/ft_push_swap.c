@@ -16,8 +16,8 @@ void	find_biggest_num_a(int argc, char *argv[], int stack_a)
 {
 	int		last_a;
 	int 	first_a;
-	int		biggest;
 
+	argc++;// usless
 	first_a = 1;// first element
 	last_a = 2;// takes the second argument of the list to make comparation
 	while (last_a <= stack_a)
@@ -35,7 +35,6 @@ void	find_biggest_num_b(int argc, char *argv[], int stack_a)
 {
 	int		last_b;
 	int 	first_b;
-	int		biggest;
 
 	first_b = stack_a + 1;// first element
 	last_b = argc - 1;// takes the second argument of the list to make comparation
@@ -48,11 +47,6 @@ void	find_biggest_num_b(int argc, char *argv[], int stack_a)
 		last_b++;
 	}
 	ft_printf("biggest args found _ b: %s\n", argv[first_b]);
-}
-
-void	move(char *argv[])
-{
-
 }
 
 void	func_display(int argc, char *argv[], int stack_a)
@@ -85,6 +79,8 @@ int	check_number_args(int argc, char *argv[])
 		return (0);
 	}
 	
+	if (atoi(argv[1]) == 0)//    bullshit
+		return (7);
 	
 	return (1);
 }
@@ -96,64 +92,69 @@ int	push_swap(int argc, char *argv[])
 	stack_a = argc - 1;
 	if (check_number_args(argc, argv) == 0)
 		return (0);
-
-	func_display(argc, argv, stack_a);
 	
-	for (int i = 0; i < 3; i++)
+	checker(argc, argv);
+	//if (checker(argc, argv) == 0)
+	//	return (0);
+
+	//func_display(argc, argv, stack_a);
+	
+	while (checker(argc, argv) == 0)
 	{
-
-	while (stack_a > 1)
-	{	
-		/*if(ft_atoi(argv[1]) > ft_atoi(argv[2]))
-			swap_a(&argv, stack_a);*/
-		if ((argc - 1) - stack_a > 1)
-		{
-			if (ft_atoi(argv[1]) > ft_atoi(argv[2]) && ft_atoi(argv[stack_a + 1]) < ft_atoi(argv[stack_a + 2]))
+		while (stack_a > 1)
+		{	
+			/*if(ft_atoi(argv[1]) > ft_atoi(argv[2]))
+				swap_a(&argv, stack_a);*/
+			if ((argc - 1) - stack_a > 1)
 			{
-				ss(&argv, stack_a, argc);
-				stack_a = push_b(&argv, stack_a);
+				if (ft_atoi(argv[1]) > ft_atoi(argv[2]) && ft_atoi(argv[stack_a + 1]) < ft_atoi(argv[stack_a + 2]))
+				{
+					ss(&argv, stack_a, argc);
+					stack_a = push_b(&argv, stack_a);
+				}
 			}
-		}
-		if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
-			swap_a(&argv, stack_a);
-		else if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
-			swap_a(&argv, stack_a);
-		else if (ft_atoi(argv[1]) < ft_atoi(argv[2]))
-			stack_a = push_b(&argv, stack_a);
-		if ((argc - 1) - stack_a > 1)// condition to be sure the opp. stack > 1 
-			if (ft_atoi(argv[stack_a + 1]) < ft_atoi(argv[stack_a + 2]))
-				swap_b(&argv, stack_a, argc);
-		//func_display(argc, argv, stack_a);
-	}
-
-	func_display(argc, argv, stack_a);
-
-	while ((argc - 1) - stack_a > 1)
-	{
-		if (stack_a > 1)
-		{
-			if (ft_atoi(argv[1]) > ft_atoi(argv[2]) && ft_atoi(argv[stack_a + 1]) < ft_atoi(argv[stack_a + 2]))
-			{
-				ss(&argv, stack_a, argc);
-				stack_a = push_b(&argv, stack_a);
-			}
-		}
-		if(ft_atoi(argv[stack_a + 1]) < ft_atoi(argv[stack_a + 2]))
-			swap_b(&argv, stack_a, argc);
-		else if (ft_atoi(argv[stack_a + 1]) > ft_atoi(argv[stack_a + 2]))
-			stack_a = push_a(argc, &argv, stack_a);
-		else if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
-			swap_a(&argv, stack_a);
-		if (stack_a > 1)// condition to be sure the opp. stack > 1 
 			if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
 				swap_a(&argv, stack_a);
+			else if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
+				swap_a(&argv, stack_a);
+			else if (ft_atoi(argv[1]) < ft_atoi(argv[2]))
+					stack_a = push_b(&argv, stack_a);
+			if ((argc - 1) - stack_a > 1)// condition to be sure the opp. stack > 1 
+				if (ft_atoi(argv[stack_a + 1]) < ft_atoi(argv[stack_a + 2]))
+					swap_b(&argv, stack_a, argc);
+			//func_display(argc, argv, stack_a);
+		}
+
 		//func_display(argc, argv, stack_a);
-	}
-	if ((argc - 1) - stack_a == 1)
-		stack_a = push_a(argc, &argv, stack_a);
+
+		while ((argc - 1) - stack_a > 1)
+		{
+			if (stack_a > 1)
+			{
+				if (ft_atoi(argv[1]) > ft_atoi(argv[2]) && ft_atoi(argv[stack_a + 1]) < ft_atoi(argv[stack_a + 2]))
+				{
+					ss(&argv, stack_a, argc);
+					stack_a = push_b(&argv, stack_a);
+				}
+			}
+			if(ft_atoi(argv[stack_a + 1]) < ft_atoi(argv[stack_a + 2]))
+				swap_b(&argv, stack_a, argc);
+			else if (ft_atoi(argv[stack_a + 1]) > ft_atoi(argv[stack_a + 2]))
+				stack_a = push_a(&argv, stack_a);
+			else if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
+				swap_a(&argv, stack_a);
+			if (stack_a > 1)// condition to be sure the opp. stack > 1 
+				if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
+					swap_a(&argv, stack_a);
+			//func_display(argc, argv, stack_a);
+		}
+		if ((argc - 1) - stack_a == 1)
+			stack_a = push_a(&argv, stack_a);
 	}
 
-	func_display(argc, argv, stack_a);
+	//checker(argc, argv);
+	//ft_printf("\nSorted!  :)\n");
+	//func_display(argc, argv, stack_a);
 	return (0);
 }
 
@@ -165,6 +166,10 @@ int main(int argc, char *argv[])
 }
 
 // gcc -g ft_push_swap.c ft_push_swap.h -Ilibft -Llibft -lft
+// new: gcc -Wall -Wextra -Werror ft_push_swap.c ft_push_swap_functions.c ft_push_swap_functions2.c -o push_swap -Ilibft -Llibft -lft
+
+// to run: ./push_swap 5 4 3 2 1
+// if needed chmod +x push_swap
 
 // make clean
 
