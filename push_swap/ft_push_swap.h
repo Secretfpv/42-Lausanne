@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 14:22:07 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/03/15 14:22:26 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/03/20 19:46:02 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/03/20 19:46:02 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ void	reverse_rotate_b(int argc, char **argv[], int stack_a);
 void	rrr(char **argv[], int stack_a, int argc);
 
 int	checker(int argc, char *argv[]);
+int	middle_number_a(char *argv[], int stack_a);
+int	middle_number_b(int argc, char *argv[], int stack_a);
 
 #endif

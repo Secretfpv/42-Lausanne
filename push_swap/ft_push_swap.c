@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 14:28:51 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/03/16 12:34:55 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/03/20 20:03:47 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/03/20 20:22:48 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,14 @@ int	push_swap(int argc, char *argv[])
 	//if (checker(argc, argv) == 0)
 	//	return (0);
 
-	//func_display(argc, argv, stack_a);
-	
+	func_display(argc, argv, stack_a);
+
+	middle_number_a(argv, stack_a);
+
 	while (checker(argc, argv) == 0)
 	{
 		while (stack_a > 1)
-		{	
+		{
 			/*if(ft_atoi(argv[1]) > ft_atoi(argv[2]))
 				swap_a(&argv, stack_a);*/
 			if ((argc - 1) - stack_a > 1)
@@ -113,12 +115,12 @@ int	push_swap(int argc, char *argv[])
 					stack_a = push_b(&argv, stack_a);
 				}
 			}
-			if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
+			else if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
 				swap_a(&argv, stack_a);
 			else if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
 				swap_a(&argv, stack_a);
-			else if (ft_atoi(argv[1]) < ft_atoi(argv[2]))
-					stack_a = push_b(&argv, stack_a);
+			else if (ft_atoi(argv[1]) < ft_atoi(argv[2]))// fix this issue
+				stack_a = push_b(&argv, stack_a);
 			if ((argc - 1) - stack_a > 1)// condition to be sure the opp. stack > 1 
 				if (ft_atoi(argv[stack_a + 1]) < ft_atoi(argv[stack_a + 2]))
 					swap_b(&argv, stack_a, argc);
@@ -152,9 +154,9 @@ int	push_swap(int argc, char *argv[])
 			stack_a = push_a(&argv, stack_a);
 	}
 
-	//checker(argc, argv);
-	//ft_printf("\nSorted!  :)\n");
-	//func_display(argc, argv, stack_a);
+	checker(argc, argv);
+	ft_printf("\n========\nSorted!  :)\n");
+	func_display(argc, argv, stack_a);
 	return (0);
 }
 

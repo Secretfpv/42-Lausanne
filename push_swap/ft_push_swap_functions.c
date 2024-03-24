@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/16 12:34:59 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/03/16 12:34:59 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/03/19 20:57:18 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/03/19 20:57:18 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,12 +110,10 @@ void	rotate_a(char **argv[], int stack_a)
 
 void	rotate_b(int argc, char **argv[], int stack_a)
 {
-	int		i;
 	char	*temp;
 
 	ft_printf("rb\n");
 	temp = (*argv)[stack_a + 1];
-	i = 1;// next element
 	while (stack_a <= (argc - 1))
 	{
 		(*argv)[stack_a + 1] = (*argv)[stack_a + 2];
