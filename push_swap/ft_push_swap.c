@@ -88,6 +88,7 @@ int	check_number_args(int argc, char *argv[])
 int	push_swap(int argc, char *argv[])
 {
 	int	stack_a;
+	//int	middle_num;
 
 	stack_a = argc - 1;
 	if (check_number_args(argc, argv) == 0)
@@ -99,14 +100,68 @@ int	push_swap(int argc, char *argv[])
 
 	func_display(argc, argv, stack_a);
 
-	middle_number_a(argv, stack_a);
 
-	while (checker(argc, argv) == 0)
+	//while (checker(argc, argv) == 0)
+	//{
+		//midvalue(argv, argc);
+	//}
+
+
+
+
+
+
+	//2nd algoritme not working
+	/*middle_num = middle_number_a(argv, stack_a);
+	
+	ft_printf("midnunum: %d\n", middle_num);
+	ft_printf("argc/2-1: %d\n", argc / 2 - 1);
+
+	//while (checker(argc, argv) == 0)
+	for (int f = 0; f < 9; f++)
+	//while (stack_a > argc / 2 - 1)
+	{
+		if (ft_atoi(argv[1]) <= middle_num)
+		{
+			if (ft_atoi(argv[1]) < ft_atoi(argv[2]))
+			{
+				swap_a(&argv, stack_a);
+			}
+			stack_a = push_b(&argv, stack_a);
+			if ((argc - 1) - stack_a > 1)// condition to be sure the opp. stack > 1 
+			{	
+				if (ft_atoi(argv[stack_a + 1]) < ft_atoi(argv[stack_a + 2]))	
+				{
+					rotate_b(argc, &argv, stack_a);
+				}
+			}
+		}
+		else if (ft_atoi(argv[1]) > middle_num)
+		{
+			rotate_a(&argv, stack_a);
+		}
+	}
+
+	func_display(argc, argv, stack_a);
+
+	if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
+	{
+		swap_a(&argv, stack_a);
+	}
+
+	while (stack_a < (argc - 1))
+	{
+		stack_a = push_a(&argv, stack_a);
+	}*/
+
+	//rotate_a(&argv, stack_a);
+	
+	
+	// 1st algoritm to sort numbers 
+	/*while (checker(argc, argv) == 0)
 	{
 		while (stack_a > 1)
 		{
-			/*if(ft_atoi(argv[1]) > ft_atoi(argv[2]))
-				swap_a(&argv, stack_a);*/
 			if ((argc - 1) - stack_a > 1)
 			{
 				if (ft_atoi(argv[1]) > ft_atoi(argv[2]) && ft_atoi(argv[stack_a + 1]) < ft_atoi(argv[stack_a + 2]))
@@ -152,7 +207,7 @@ int	push_swap(int argc, char *argv[])
 		}
 		if ((argc - 1) - stack_a == 1)
 			stack_a = push_a(&argv, stack_a);
-	}
+	}*/
 
 	checker(argc, argv);
 	ft_printf("\n========\nSorted!  :)\n");

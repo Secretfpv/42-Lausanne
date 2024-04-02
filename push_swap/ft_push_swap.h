@@ -37,5 +37,6 @@ void	rrr(char **argv[], int stack_a, int argc);
 int	checker(int argc, char *argv[]);
 int	middle_number_a(char *argv[], int stack_a);
 int	middle_number_b(int argc, char *argv[], int stack_a);
+int	midvalue(char *argv[], int argc);
 
 #endif

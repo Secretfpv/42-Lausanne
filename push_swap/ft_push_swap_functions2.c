@@ -60,3 +60,51 @@ int	middle_number_b(int argc, char *argv[], int stack_a)
 	suma = suma / (argc - 1 - stack_a);// do sprawdzenia
 	return (suma);
 }
+
+int	midvalue(char *argv[], int argc)
+{
+	int	mid_val;
+	int	start;
+	int	i;
+	int	last_a;
+	int	first_a;
+	char	*temp;
+
+	first_a = 1;// first element
+	last_a = 2;// takes the second argument of the list to make comparation
+	mid_val = 1;
+	start = 1;
+	ft_printf("(Argc - 1)/2 : %d\n", ((argc - 0)/2));// zaokraglone w gore
+	while (start <= (argc/2))
+	{
+		i = 1;
+		last_a = 2;
+		first_a = 1;
+		while (i < (argc - start))
+		{
+			ft_printf("firts element: %s\n", argv[start]);
+			if (ft_atoi(argv[first_a]) < ft_atoi(argv[last_a]))
+			{
+				ft_printf("---------lasta: %d\n", last_a);
+				first_a = last_a;
+				temp = argv[last_a];
+				ft_printf("-> %s\n", argv[last_a]);
+				ft_printf("-< %s\n", temp);
+				argv[last_a] = argv[start];
+				ft_printf("-> %s\n", argv[start]);
+				ft_printf("-> %s\n", argv[last_a]);
+				argv[start] = argv[last_a];
+				ft_printf("-> %s\n", temp);
+			}
+			last_a++;
+			ft_printf("MV: %d\n", ft_atoi(argv[mid_val]));
+			ft_printf("last a: %d\n", last_a);
+			ft_printf("first a: %d\n", first_a);
+			i++;
+		}
+		first_a++;
+		ft_printf("start: %d\n", start);
+		start++;
+	}
+	return (mid_val);
+}
