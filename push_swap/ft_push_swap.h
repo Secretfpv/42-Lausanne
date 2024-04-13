@@ -38,5 +38,7 @@ int	checker(int argc, char *argv[]);
 int	middle_number_a(char *argv[], int stack_a);
 int	middle_number_b(int argc, char *argv[], int stack_a);
 int	midvalue(char *argv[], int argc);
+void	ft_sort_3_a(char *argv[], int stack_a);
+int	ft_sort(char *argv[], int argc, int stack_a);
 
 #endif

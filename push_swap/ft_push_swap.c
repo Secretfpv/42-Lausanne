@@ -76,13 +76,13 @@ int	check_number_args(int argc, char *argv[])
 	if (argc < 3)
 	{
 		ft_printf("Not enough arguments\n");
-		return (0);
+		return (argc - 1);
 	}
 	
-	if (atoi(argv[1]) == 0)//    bullshit
-		return (7);
+	if (atoi(argv[0]) == 0)//    bullshit
+		return (argc - 1);
 	
-	return (1);
+	return (argc - 1);
 }
 
 int	push_swap(int argc, char *argv[])
@@ -91,10 +91,10 @@ int	push_swap(int argc, char *argv[])
 	//int	middle_num;
 
 	stack_a = argc - 1;
-	if (check_number_args(argc, argv) == 0)
+	if (check_number_args(argc, argv) < 2)
 		return (0);
 	
-	checker(argc, argv);
+	//checker(argc, argv);
 	//if (checker(argc, argv) == 0)
 	//	return (0);
 
@@ -106,9 +106,27 @@ int	push_swap(int argc, char *argv[])
 		//midvalue(argv, argc);
 	//}
 
+	ft_printf("Nb of args: %d\n", check_number_args(argc, argv));
 
 
+	if (stack_a > 3)
+	{
+//		ft_printf("ARGS+\n\n");
+		stack_a = ft_sort(argv, argc, stack_a);
+	}
 
+	if (stack_a == 3)
+	{
+		ft_printf("i am here with 3 args\n");
+		ft_sort_3_a(argv, stack_a);
+	}
+
+	if (stack_a == 2)
+	{
+		if (ft_atoi(argv[2]) < ft_atoi(argv[1]))
+			swap_a(&argv, stack_a);
+	}
+	
 
 
 	//2nd algoritme not working
@@ -209,8 +227,8 @@ int	push_swap(int argc, char *argv[])
 			stack_a = push_a(&argv, stack_a);
 	}*/
 
-	checker(argc, argv);
-	ft_printf("\n========\nSorted!  :)\n");
+	//checker(argc, argv);
+	//ft_printf("\n========\nSorted!  :)\n");
 	func_display(argc, argv, stack_a);
 	return (0);
 }

@@ -108,3 +108,46 @@ int	midvalue(char *argv[], int argc)
 	}
 	return (mid_val);
 }
+
+void	ft_sort_3_a(char *argv[], int stack_a)
+{
+//	ft_printf("%d\n", ft_atoi(argv[1]));
+//	ft_printf("%d\n", ft_atoi(argv[2]));
+//	ft_printf("%d\n", ft_atoi(argv[3]));
+
+	if (ft_atoi(argv[1]) < ft_atoi(argv[2]) && ft_atoi(argv[3]) < ft_atoi(argv[2]))
+	{
+		reverse_rotate_a(&argv, stack_a);
+		swap_a(&argv, stack_a);
+	}
+	if (ft_atoi(argv[3]) < ft_atoi(argv[2]) && ft_atoi(argv[2]) < ft_atoi(argv[1]))
+	{
+		rotate_a(&argv, stack_a);
+		swap_a(&argv, stack_a);
+	}
+	if (ft_atoi(argv[2]) < ft_atoi(argv[3]) && ft_atoi(argv[2]) < ft_atoi(argv[1]) && ft_atoi(argv[3]) < ft_atoi(argv[1]))
+		rotate_a(&argv, stack_a);
+	if (ft_atoi(argv[2]) < ft_atoi(argv[3]) && ft_atoi(argv[2]) < ft_atoi(argv[1]))
+		swap_a(&argv, stack_a);
+	if (ft_atoi(argv[3]) < ft_atoi(argv[2]) && ft_atoi(argv[1]) < ft_atoi(argv[2]))
+		reverse_rotate_a(&argv, stack_a);
+}
+
+int	ft_sort(char *argv[], int argc, int stack_a)
+{
+	stack_a = push_b(&argv, stack_a);
+	stack_a = push_b(&argv, stack_a);
+
+	while (stack_a > 3)
+	{
+		if ()
+		{
+
+		}
+		
+	}
+	
+	argc++;
+
+	return (stack_a);
+}
