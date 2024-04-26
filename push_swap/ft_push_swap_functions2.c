@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_push_swap.h"
+#include "ft_push_swap.h"
 
 int	checker(int argc, char *argv[])
 {
@@ -28,85 +28,6 @@ int	checker(int argc, char *argv[])
 	}
 	//ft_printf("\nSorted!  :)\n");
 	return (1);// in this case its sorted
-}
-
-int	middle_number_a(char *argv[], int stack_a)
-{
-	int	i;
-	int	suma;
-
-	i = 1;
-	suma = 0;
-	while (i <= stack_a)
-	{
-		suma = suma + ft_atoi(argv[i]);
-		i++;
-	}
-	suma = suma / stack_a;
-	ft_printf("Srednia: %d\n\n", suma);
-	return (suma);
-}
-
-int	middle_number_b(int argc, char *argv[], int stack_a)
-{
-	int	suma;
-
-	suma = 0;
-	while (stack_a + 1 <= argc)
-	{
-		suma = suma + ft_atoi(argv[stack_a + 1]);
-		stack_a++;
-	}
-	suma = suma / (argc - 1 - stack_a);// do sprawdzenia
-	return (suma);
-}
-
-int	midvalue(char *argv[], int argc)
-{
-	int	mid_val;
-	int	start;
-	int	i;
-	int	last_a;
-	int	first_a;
-	char	*temp;
-
-	first_a = 1;// first element
-	last_a = 2;// takes the second argument of the list to make comparation
-	mid_val = 1;
-	start = 1;
-	ft_printf("(Argc - 1)/2 : %d\n", ((argc - 0)/2));// zaokraglone w gore
-	while (start <= (argc/2))
-	{
-		i = 1;
-		last_a = 2;
-		first_a = 1;
-		while (i < (argc - start))
-		{
-			ft_printf("firts element: %s\n", argv[start]);
-			if (ft_atoi(argv[first_a]) < ft_atoi(argv[last_a]))
-			{
-				ft_printf("---------lasta: %d\n", last_a);
-				first_a = last_a;
-				temp = argv[last_a];
-				ft_printf("-> %s\n", argv[last_a]);
-				ft_printf("-< %s\n", temp);
-				argv[last_a] = argv[start];
-				ft_printf("-> %s\n", argv[start]);
-				ft_printf("-> %s\n", argv[last_a]);
-				argv[start] = argv[last_a];
-				ft_printf("-> %s\n", temp);
-			}
-			last_a++;
-			ft_printf("MV: %d\n", ft_atoi(argv[mid_val]));
-			ft_printf("last a: %d\n", last_a);
-			ft_printf("first a: %d\n", first_a);
-			i++;
-		}
-		first_a++;
-		ft_printf("start: %d\n", start);
-		start++;
-	}
-	return (mid_val);
 }
 
 void	ft_sort_3_a(char *argv[], int stack_a)
@@ -133,38 +54,84 @@ void	ft_sort_3_a(char *argv[], int stack_a)
 		reverse_rotate_a(&argv, stack_a);
 }
 
-int	ft_sort(char *argv[], int argc, int stack_a)
+void	ft_sort(char *argv[], int argc, int stack_a)
 {
-	stack_a = push_b(&argv, stack_a);
-	stack_a = push_b(&argv, stack_a);
+	//int min_moves;
+	int first;
+	int second;
+	int third;
 
-	while (stack_a > 3) // need to check firs 3 num of a and take the smalest one
+
+	push_b(&argv, &stack_a);
+	push_b(&argv, &stack_a);
+	//stack_a = push_b(&argv, stack_a);
+	//stack_a = push_b(&argv, stack_a);
+	ft_printf("push 2x to b\n\n");
+
+
+
+	first = path1(argv, argc, stack_a);
+	second = path2(argv, argc, stack_a);
+	third = path3(argv, argc, stack_a);
+	
+	if (first < second && first < third)
 	{
-		//stack_a = push_b(&argv, stack_a);
-		//ft_printf("i am pusching you\n");
-		stack_a = path1(argv, argc, stack_a);
-		//{
-
-		//}
-
+		ft_printf("\n1a is min and has: %d moves\n", first);
+		//sorta1();
 	}
-
-	argc++;
-
-	return (stack_a);
+	if (second < first && second < third)
+	{
+		ft_printf("\n2a is min and has: %d moves\n", second);
+		//sorta3();
+	}
+	if (third < first && third < second)
+	{
+		ft_printf("\n3a is min and has: %d moves\n", third);
+		//sorta3();
+	}
 }
 
 int path1(char *argv[], int argc, int stack_a)
 {
-	while (stack_a > 3) // need to check firs 3 num of a and take the smalest one
-	{
-		stack_a = push_b(&argv, stack_a);
-		ft_printf("i am pusching you\n");
-		path1(argv, argc, stack_a);
-		//{
+	int min_moves;
+	int down;
 
-		//}
+	min_moves = moves_up(argv, argc, stack_a, 1);
+	down = moves_down(argv, argc, stack_a, 1);
 
-	}
-	return (stack_a);
+	if (down < min_moves)
+		min_moves = down;
+
+	ft_printf("--> %d \n\n", min_moves);
+	return (min_moves);
+}
+
+int path2(char *argv[], int argc, int stack_a)
+{
+	int min_moves;
+	int down;
+
+	min_moves = moves_up(argv, argc, stack_a, 2);
+	down = moves_down(argv, argc, stack_a, 2);
+
+	if (down < min_moves)
+		min_moves = down;
+
+	ft_printf("--> %d \n\n", min_moves);
+	return (min_moves);
+}
+
+int path3(char *argv[], int argc, int stack_a)
+{
+	int min_moves;
+	int down;
+
+	min_moves = moves_up(argv, argc, stack_a, 3);
+	down = moves_down(argv, argc, stack_a, 3);
+
+	if (down < min_moves)
+		min_moves = down;
+
+	ft_printf("--> %d \n\n", min_moves);
+	return (min_moves);
 }

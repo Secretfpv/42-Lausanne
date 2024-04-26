@@ -58,24 +58,25 @@ void	ss(char **argv[], int stack_a, int argc)
 	}
 }
 
-int	push_a(char **argv[], int stack_a)
+void	push_a(char **argv[], int *stack_a)
 {
 	int		i;
 	char	*temp;
 
 	ft_printf("pa\n");
-	temp = (*argv)[stack_a + 1];
-	i = stack_a + 1;// next element
+	temp = (*argv)[*stack_a + 1];
+	i = *stack_a + 1;// next element
 	while (i >= 1)
 	{
 		(*argv)[i] = (*argv)[i - 1];
 		i--;
 	}
 	(*argv)[1] = temp;
-	return (stack_a + 1);
+	*stack_a = *stack_a + 1;
+	//return (stack_a + 1);
 }
 
-int	push_b(char **argv[], int stack_a)
+void	push_b(char **argv[], int *stack_a)
 {
 	int		i;
 	char	*temp;
@@ -83,13 +84,14 @@ int	push_b(char **argv[], int stack_a)
 	ft_printf("pb\n");
 	temp = (*argv)[1];
 	i = 1;// next element
-	while (i <= stack_a)
+	while (i <= *stack_a)
 	{
 		(*argv)[i] = (*argv)[i + 1];
 		i++;
 	}
-	(*argv)[stack_a] = temp;
-	return (stack_a - 1);
+	(*argv)[*stack_a] = temp;
+	*stack_a = *stack_a - 1;
+	//return (stack_a - 1);
 }
 
 void	rotate_a(char **argv[], int stack_a)
