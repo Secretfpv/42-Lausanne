@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 20:03:47 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/03/20 20:22:48 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/04/25 11:55:00 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/04/25 11:55:37 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,21 +93,10 @@ int	push_swap(int argc, char *argv[])
 	stack_a = argc - 1;
 	if (check_number_args(argc, argv) < 2)
 		return (0);
-	
-	//checker(argc, argv);
-	//if (checker(argc, argv) == 0)
-	//	return (0);
 
 	func_display(argc, argv, stack_a);
 
-
-	//while (checker(argc, argv) == 0)
-	//{
-		//midvalue(argv, argc);
-	//}
-
 	ft_printf("Nb of args: %d\n", check_number_args(argc, argv));
-
 
 	if (stack_a > 3)
 	{
@@ -128,52 +117,15 @@ int	push_swap(int argc, char *argv[])
 	}
 	
 
-
-	//2nd algoritme not working
-	/*middle_num = middle_number_a(argv, stack_a);
-	
-	ft_printf("midnunum: %d\n", middle_num);
-	ft_printf("argc/2-1: %d\n", argc / 2 - 1);
-
-	//while (checker(argc, argv) == 0)
-	for (int f = 0; f < 9; f++)
-	//while (stack_a > argc / 2 - 1)
-	{
-		if (ft_atoi(argv[1]) <= middle_num)
-		{
-			if (ft_atoi(argv[1]) < ft_atoi(argv[2]))
-			{
-				swap_a(&argv, stack_a);
-			}
-			stack_a = push_b(&argv, stack_a);
-			if ((argc - 1) - stack_a > 1)// condition to be sure the opp. stack > 1 
-			{	
-				if (ft_atoi(argv[stack_a + 1]) < ft_atoi(argv[stack_a + 2]))	
-				{
-					rotate_b(argc, &argv, stack_a);
-				}
-			}
-		}
-		else if (ft_atoi(argv[1]) > middle_num)
-		{
-			rotate_a(&argv, stack_a);
-		}
-	}
-
-	func_display(argc, argv, stack_a);
-
-	if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
-	{
-		swap_a(&argv, stack_a);
-	}
-
-	while (stack_a < (argc - 1))
-	{
-		stack_a = push_a(&argv, stack_a);
-	}*/
-
-	//rotate_a(&argv, stack_a);
-	
+//ft_atoi(argv[1])
+/*	swap_a(&argv, stack_a);
+	stack_a = push_b(&argv, stack_a);
+	rotate_b(argc, &argv, stack_a);
+	rotate_a(&argv, stack_a);
+	swap_a(&argv, stack_a);
+	stack_a = push_a(&argv, stack_a);
+	rotate_a(&argv, stack_a);
+*/	
 	
 	// 1st algoritm to sort numbers 
 	/*while (checker(argc, argv) == 0)

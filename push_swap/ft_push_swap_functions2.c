@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 19:46:27 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/03/20 19:46:27 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/04/25 12:02:32 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/04/25 12:03:42 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,16 +138,33 @@ int	ft_sort(char *argv[], int argc, int stack_a)
 	stack_a = push_b(&argv, stack_a);
 	stack_a = push_b(&argv, stack_a);
 
-	while (stack_a > 3)
+	while (stack_a > 3) // need to check firs 3 num of a and take the smalest one
 	{
-		if ()
-		{
+		//stack_a = push_b(&argv, stack_a);
+		//ft_printf("i am pusching you\n");
+		stack_a = path1(argv, argc, stack_a);
+		//{
 
-		}
-		
+		//}
+
 	}
-	
+
 	argc++;
 
+	return (stack_a);
+}
+
+int path1(char *argv[], int argc, int stack_a)
+{
+	while (stack_a > 3) // need to check firs 3 num of a and take the smalest one
+	{
+		stack_a = push_b(&argv, stack_a);
+		ft_printf("i am pusching you\n");
+		path1(argv, argc, stack_a);
+		//{
+
+		//}
+
+	}
 	return (stack_a);
 }

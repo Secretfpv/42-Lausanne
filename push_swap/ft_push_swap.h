@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 19:46:02 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/03/20 19:46:02 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/04/25 12:01:24 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/04/25 12:01:24 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ int	middle_number_b(int argc, char *argv[], int stack_a);
 int	midvalue(char *argv[], int argc);
 void	ft_sort_3_a(char *argv[], int stack_a);
 int	ft_sort(char *argv[], int argc, int stack_a);
+int path1(char *argv[], int argc, int stack_a);
 
 #endif
