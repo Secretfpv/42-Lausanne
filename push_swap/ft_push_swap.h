@@ -21,6 +21,7 @@
 
 int	main(int argc, char *argv[]);
 int	push_swap(int argc, char *argv[]);
+void	func_display(int argc, char *argv[], int stack_a);
 
 void	swap_a(char **argv[], int stack_a);
 void	swap_b(char **argv[], int stack_a, int argc);
@@ -36,13 +37,13 @@ void	rrr(char **argv[], int stack_a, int argc);
 
 int	checker(int argc, char *argv[]);
 void	ft_sort_3_a(char *argv[], int stack_a);
-void	ft_sort(char *argv[], int argc, int stack_a);
+void	ft_sort(char *argv[], int argc, int *stack_a);
 int path1(char *argv[], int argc, int stack_a);
 int path2(char *argv[], int argc, int stack_a);
 int path3(char *argv[], int argc, int stack_a);
 
 int	moves_up(char *argv[], int argc, int stack_a, int n);
 int	moves_down(char *argv[], int argc, int stack_a, int n);
-
+void	sorta1(char *argv[], int argc, int *stack_a);
 
 #endif

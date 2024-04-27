@@ -54,32 +54,40 @@ void	ft_sort_3_a(char *argv[], int stack_a)
 		reverse_rotate_a(&argv, stack_a);
 }
 
-void	ft_sort(char *argv[], int argc, int stack_a)
+void	ft_sort(char *argv[], int argc, int *stack_a)
 {
 	//int min_moves;
 	int first;
 	int second;
 	int third;
 
-
-	push_b(&argv, &stack_a);
-	push_b(&argv, &stack_a);
-	//stack_a = push_b(&argv, stack_a);
+	//ft_printf("\nstack_a: %d\n", *stack_a);
+	push_b(&argv, stack_a);
+	push_b(&argv, stack_a);
+	//ft_printf("\nstack_a: %d\n", *stack_a);
+	push_b(&argv, stack_a);
 	//stack_a = push_b(&argv, stack_a);
 	ft_printf("push 2x to b\n\n");
 
+	//if (ft_atoi(argv[*stack_a + 1]) < ft_atoi(argv[argc - 1]))
+	//	swap_b(&argv, *stack_a, argc);
 
+	//while (*stack_a > 3)
+	for (int a = 0; a < 2; a++)  // change to 1 2 3 4 ...
+	{
+		ft_printf("\n\n doing this again \n\n");
+	first = path1(argv, argc, *stack_a);
+	second = path2(argv, argc, *stack_a);
+	third = path3(argv, argc, *stack_a);
 
-	first = path1(argv, argc, stack_a);
-	second = path2(argv, argc, stack_a);
-	third = path3(argv, argc, stack_a);
+	func_display(argc, argv, *stack_a);
 	
-	if (first < second && first < third)
+	if (first <= second && first <= third)
 	{
 		ft_printf("\n1a is min and has: %d moves\n", first);
-		//sorta1();
+		sorta1(argv, argc, stack_a); // fonction OFF
 	}
-	if (second < first && second < third)
+	if (second < first && second <= third)
 	{
 		ft_printf("\n2a is min and has: %d moves\n", second);
 		//sorta3();
@@ -88,6 +96,7 @@ void	ft_sort(char *argv[], int argc, int stack_a)
 	{
 		ft_printf("\n3a is min and has: %d moves\n", third);
 		//sorta3();
+	}
 	}
 }
 

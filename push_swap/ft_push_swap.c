@@ -64,7 +64,7 @@ int	push_swap(int argc, char *argv[])
 	if (stack_a > 3)
 	{
 //		ft_printf("ARGS+\n\n");
-		ft_sort(argv, argc, stack_a);
+		ft_sort(argv, argc, &stack_a);
 	}
 
 	if (stack_a == 3)
