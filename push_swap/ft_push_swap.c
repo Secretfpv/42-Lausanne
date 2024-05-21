@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/25 11:55:00 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/04/25 11:55:37 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/05/21 20:29:50 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/05/21 20:29:50 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	push_swap(int argc, char *argv[])
 
 	if (stack_a == 3)
 	{
-		ft_printf("i am here with 3 args\n");
+		//ft_printf("i am here with 3 args\n");
 		ft_sort_3_a(argv, stack_a);
 	}
 
@@ -79,6 +79,7 @@ int	push_swap(int argc, char *argv[])
 			swap_a(&argv, stack_a);
 	}
 	
+	stackbtoa(argv, argc, &stack_a);
 
 	//checker(argc, argv);
 	//ft_printf("\n========\nSorted!  :)\n");

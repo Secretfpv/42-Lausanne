@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/25 12:01:24 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/04/25 12:01:24 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/05/21 20:32:31 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/05/21 20:32:31 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,9 @@ int path3(char *argv[], int argc, int stack_a);
 int	moves_up(char *argv[], int argc, int stack_a, int n);
 int	moves_down(char *argv[], int argc, int stack_a, int n);
 void	sorta1(char *argv[], int argc, int *stack_a);
+void	sorta2(char *argv[], int argc, int *stack_a);
+void	sorta3(char *argv[], int argc, int *stack_a);
+
+void	stackbtoa(char *argv[], int argc, int *stack_a);
 
 #endif
