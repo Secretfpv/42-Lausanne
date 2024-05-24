@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 20:32:31 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/05/21 20:32:31 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/05/23 21:41:11 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/05/23 21:41:11 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void	sorta2(char *argv[], int argc, int *stack_a);
 void	sorta3(char *argv[], int argc, int *stack_a);
 
 void	stackbtoa(char *argv[], int argc, int *stack_a);
+int		b_top_num(char *argv[], int argc, int *stack_a);
 
 #endif
