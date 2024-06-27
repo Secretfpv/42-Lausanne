@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 20:16:36 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/05/21 20:20:20 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/05/24 18:41:20 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/05/24 18:41:20 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	moves_up(char *argv[], int argc, int stack_a, int n/*the number*/)
 
 	//int first_number;
 	//first_number =
-	ft_printf("\nthis is 1b: %d\n", ft_atoi(argv[stack_a + 1]));
-	ft_printf("\nthis is 1a: %d\n\n", ft_atoi(argv[n]));
+//	ft_printf("\nthis is 1b: %d\n", ft_atoi(argv[stack_a + 1]));
+//	ft_printf("\nthis is 1a: %d\n\n", ft_atoi(argv[n]));
 
 
 
@@ -33,11 +33,11 @@ int	moves_up(char *argv[], int argc, int stack_a, int n/*the number*/)
 	{
 		moves_needed_up++;
 		stack_a++;
-	ft_printf("\nthis is 1a???????: \n");
+//	ft_printf("\nthis is 1a???????: \n");
 	}
 	//if (ft_atoi(argv[n]) > ft_atoi(argv[argc - 1])) //need check this case
 	//	moves_needed_up++;
-	ft_printf("a: %d - moves needed from up: %d\n", n, moves_needed_up + n);
+//	ft_printf("a: %d - moves needed from up: %d\n", n, moves_needed_up + n);
 
 	return (moves_needed_up + n);
 }
@@ -46,7 +46,7 @@ int	moves_down(char *argv[], int argc, int stack_a, int n)
 {
 	int moves_needed_down;
 
-	func_display(argc, argv, stack_a);
+//	func_display(argc, argv, stack_a);
 
 	moves_needed_down = 0;
 	while (ft_atoi(argv[n]) < ft_atoi(argv[argc - 1]) && ft_atoi(argv[n]) > ft_atoi(argv[argc - 2]) && ((argc - 1) > (stack_a + 1)))
@@ -56,7 +56,7 @@ int	moves_down(char *argv[], int argc, int stack_a, int n)
 	}
 	//if (ft_atoi(argv[n]) > ft_atoi(argv[stack_a + 1]))
 	//	moves_needed_down++;
-	ft_printf("a: %d - moves needed from down: %d, last b: %d\n", n, moves_needed_down + n, ft_atoi(argv[argc - 1]));
+//	ft_printf("a: %d - moves needed from down: %d, last b: %d\n", n, moves_needed_down + n, ft_atoi(argv[argc - 1]));
 	
 	return (moves_needed_down + n + 1); // i wanna number pass up
 }
@@ -72,8 +72,8 @@ void	sorta1(char *argv[], int argc, int *stack_a)
 	}
 	else
 	{
-		ft_printf("\nwoooow: \n\n");
-		ft_printf("\nb1 number: %d \n\n", ft_atoi(argv[*stack_a + 1]));
+//		ft_printf("\nwoooow: \n\n");
+//		ft_printf("\nb1 number: %d \n\n", ft_atoi(argv[*stack_a + 1]));
 		while (ft_atoi(argv[1]) > ft_atoi(argv[argc - 1]))
 			reverse_rotate_b(argc, &argv, *stack_a);
 		reverse_rotate_b(argc, &argv, *stack_a); // to put nuber 1 up
@@ -94,7 +94,7 @@ void	sorta2(char *argv[], int argc, int *stack_a)
 	else
 	{
 		//ft_printf("\nwoooow: \n\n");
-		ft_printf("\nb1 number: %d \n\n", ft_atoi(argv[*stack_a + 1]));
+//		ft_printf("\nb1 number: %d \n\n", ft_atoi(argv[*stack_a + 1]));
 		while (ft_atoi(argv[2]) > ft_atoi(argv[argc - 1]))
 			reverse_rotate_b(argc, &argv, *stack_a);
 		//rotate_a(&argv, *stack_a); // idl what this is???
@@ -117,7 +117,7 @@ void	sorta3(char *argv[], int argc, int *stack_a)
 	else
 	{
 		//ft_printf("\nwoooow: \n\n");
-		ft_printf("\nb1 number: %d \n\n", ft_atoi(argv[*stack_a + 1]));
+//		ft_printf("\nb1 number: %d \n\n", ft_atoi(argv[*stack_a + 1]));
 		while (ft_atoi(argv[3]) < ft_atoi(argv[argc - 1]))
 			reverse_rotate_b(argc, &argv, *stack_a);
 		rotate_a(&argv, *stack_a);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwikiera <mwikiera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 20:29:50 by mwikiera          #+#    #+#             */
-/*   Updated: 2024/05/21 20:29:50 by mwikiera         ###   ########.ch       */
+/*   Created: 2024/06/27 02:07:30 by mwikiera          #+#    #+#             */
+/*   Updated: 2024/06/27 02:07:30 by mwikiera         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,14 @@ int	push_swap(int argc, char *argv[])
 
 	if (stack_a > 3)
 	{
-//		ft_printf("ARGS+\n\n");
+		// if biggest num -> other algo
+
+		push_b(&argv, &stack_a);
+		push_b(&argv, &stack_a);
+
+		if (ft_atoi(argv[stack_a + 1]) < ft_atoi(argv[stack_a + 2]))
+			swap_b(&argv, stack_a, argc);
+
 		ft_sort(argv, argc, &stack_a);
 	}
 
@@ -78,8 +85,11 @@ int	push_swap(int argc, char *argv[])
 		if (ft_atoi(argv[2]) < ft_atoi(argv[1]))
 			swap_a(&argv, stack_a);
 	}
+ 
+	func_display(argc, argv, stack_a);
 	
-	stackbtoa(argv, argc, &stack_a);
+	if (argc - 1 > 3)
+		stackbtoa(argv, argc, &stack_a);
 
 	//checker(argc, argv);
 	//ft_printf("\n========\nSorted!  :)\n");
